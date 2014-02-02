@@ -1,31 +1,54 @@
 <template name="signup">
   <div class="row">
     <div class="large-12 columns">
-      <h1><span class="brand"><strong>Meteoric</strong></span> - Launch Your Learning </h1>
+      <h1><span class="brand"><strong>Meteor Week</strong></span> - Launch Your Learning </h1>
     </div>
   </div>
 
   <div class="row">
     <div class="large-12 columns">
       <div class="panel">
-        <h3> Meteoric is your one-stop shop for Meteor tutorials. </h3>
-        <p> We work hard to provide great content for free, and even greater content for our premuim users. </p>
-        <p> Here are three reasons to get <span class="brand"><strong>Meteoric Premium</strong></span>: </p>
+        <h3> <span class="brand"><strong>Meteor Week</strong></span> is your one-stop shop for learning Meteor. </h3>
+        <p> Here's what the learning page looks like: </p>
+
+
         <div class="row">
-          <div class="large-4 medium-4 columns">
-            <p><a href="/videos"> Advanced Concepts </a><br /> If the basic and intermediate tutorials weren't enough to satisfy, the advanced tutorials might be just what you need.</p>
-          </div>
-          <div class="large-4 medium-4 columns">
-            <p><a href="/topics"> Hand-Crafted Newsletter </a><br /> Sending you only the best content from others in the Meteor community on the regular to keep you in the know. </p>
-          </div>
-          <div class="large-4 medium-4 columns">
-            <p><a href="/challenges"> Technical Support </a><br /> We value our premium members and treat them like family. That means providing help whenever necessary. </p>
+          <div class="large-12 columns">
+            <div class="panel">
+              <h3>Getting Started</h3>
+              <ul>
+                <li><a href="/topics/why-meteor">                         Why Meteor?           </a></li>
+                <li><a href="/topics/getting-started">                    Getting Started       </a></li>
+                <li><a href="/topics/first-template">                     Creating a Template   </a></li>
+                <li class="inactive"><a href="/topics/routing-basics">    Routing Basics        </a></li>
+                <li class="inactive"><a href="/topics/intro-collections"> Intro to Collections  </a></li>
+                <li class="inactive"><a href="/topics/pub-sub-intro">     Publish and Subscribe </a></li>
+                <li class="inactive"><a href="/topics/meteor-docs">       The Documentation     </a></li>
+                <li class="inactive"><a href="/topics/atmosphere">        Atmosphere            </a></li>
+              </ul>
+              <h3>Intermediate Tutorials</h3>
+              <ul class="inactive">
+                <li><a href=""> Heroku Deployment       </a></li>
+                <li><a href=""> Mobile Meteor Apps      </a></li>
+                <li><a href=""> Accounts                </a></li>
+                <li><a href=""> Learn You a JavaScript  </a></li>
+              </ul>
+              <h3>Advanced Tutorials</h3>
+              <ul class="inactive">
+                <li><a href=""> Advanced Mongo          </a></li>
+                <li><a href=""> Node.js Fibers          </a></li>
+                <li><a href=""> Custom Packages         </a></li>
+                <li><a href=""> API's                   </a></li>
+                <li><a href=""> Contributing to Meteor  </a></li>
+              </ul>
+            </div>
           </div>
         </div>
+
         <div class="row">
           <div class="large-12 columns">
             <h3> Now We Take Your Hard-Earned Money </h3>
-            <p> We know that <span class="brand"><strong>Meteoric Premium</strong></span> isn't for everyone. That's why we provide our free content to help grow the Meteor community and share the magic. However, if our premium benefits seem too enticing, look no further. You can become a premium member for only $10/month, or $100 for 12 months.</p>
+            <p>Join Meteor Week for only $70, less than the average college textbook.</p>
           </div>
         </div>
       </div>
@@ -34,7 +57,7 @@
 
   <div class="row">
     <div class="large-12 columns text-center">
-      <h1>Join <span class="brand"><strong>Meteoric Premium</strong></span> today.</h1>
+      <h1>Join <span class="brand"><strong>Meteor Week</strong></span>.</h1>
     </div>
   </div>
 
@@ -42,7 +65,7 @@
     <div class="row">
       <div class="large-4 large-offset-4 columns">
         <label>Name</label>
-        <input type="text" placeholder="Mete Oric" />
+        <input type="text" placeholder="Neil Armstrong" />
       </div>
     </div>
     <div class="row">
@@ -60,8 +83,10 @@
     <div class="row">
       <div class="large-4 large-offset-4 columns">
         <label>Textarea Label</label>
-        <textarea placeholder="Anything in particular you would like from us?"></textarea>
+        <textarea placeholder="Anything in particular you would like to see from us?"></textarea>
       </div>
     </div>
+    <input class="button button-rounded centered" type="submit" value="Join" />
   </form>
+  <br/>
 </template>

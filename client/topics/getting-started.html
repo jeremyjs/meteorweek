@@ -1,0 +1,104 @@
+<template name="getting-started">
+ <div class="row">
+    <div class="large-12 columns">
+      <h1> Welcome to <span class="brand"><strong>Meteor Week</strong></span></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+
+      <p>Let's install Meteor! Throughout this tutorial, shell commands and Meteor code are shown in a box like the one below.</p>
+      <p>Type the following into your shell to install Meteor:</p>
+      <div class="code panel">
+        $ curl https://install.meteor.com/ | sh
+      </div>
+      <p>If you don't have curl installed, you can get it on most linux distributions with <span class="code"> sudo apt-get install curl</span>.</p>
+
+      <p>Okay, let's create our first application! Pick a location where you'd like to create the project. I suggest making a folder called "MeteorApps" for all of your meteor projects. All you have to do to create a meteor app is use the meteor create command:</p>
+      <div class="code panel">
+        $ cd MeteorApps <br/>
+        $ meteor create myFirstApp <br/>
+        myFirstApp: created. <br/>
+        ... <br/>
+<!--         <br/>
+        To run your new app: <br/>
+        &nbsp;&nbsp;&nbsp;cd new <br/>
+        &nbsp;&nbsp;&nbsp;meteor <br/>
+ -->
+        $ cd myFirstApp <br/>
+        $ ls <br/>
+        myFirstApp.css&nbsp;&nbsp;myFirstApp.html&nbsp;&nbsp;myFirstApp.js
+      </div>
+      <p>In your new app, you'll find three files: <span class="code">myFirstApp.html</span>, <span class="code">myFirstApp.css</span>, and <span class="code">myFirstApp.js</span>. Let's go ahead and run the local server. All you have to do is:</p>
+      <div class="code panel">
+        $ meteor <br/>
+<!--         [[[[[ ~/meteor/meteor-week ]]]]] <br/>
+        <br/>
+        => Meteor server running on: http://localhost:3000/ -->
+      </div>
+      <p>Now you can check out the site by opening a new browser tab and going to http://localhost:3000/</p>
+
+      <p>You should see something like this:</p>
+      <div class="panel">
+        <h1>Hello World!</h1>
+        Welcome to myFirstApp.
+        <input type="button" value="Click" />
+      </div>
+      <p>Now open up your project files in your favorite text editor. If you haven't tried it yet, I recommend <a href="http://www.sublimetext.com/">Sublime Text</a>.</p>
+
+      <div class="code panel">
+        <h5 class="title">myFirstApp.html</h5>
+        <div class="code">
+          &lt;head&gt;<br/>&nbsp;&nbsp;&lt;title&gt;myFirstApp&lt;/title&gt;<br/>&lt;/head&gt;<br/><br/>&lt;body&gt;<br/>&nbsp;&nbsp;&#123;&#123;&gt; hello&#125;&#125;<br/>&lt;/body&gt;<br/><br/>&lt;template name=&quot;hello&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Hello World!&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;&#123;greeting&#125;&#125;<br/>&nbsp;&nbsp;&lt;input type=&quot;button&quot; value=&quot;Click&quot; /&gt;<br/>&lt;/template&gt;
+        </div>
+      </div>
+      <div class="panel">
+        <h5 class="title">myFirstApp.js</h5>
+        <div class="code">
+          if&nbsp;(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>&nbsp;&nbsp;};<br/><br/>&nbsp;&nbsp;Template.hello.events({<br/>&nbsp;&nbsp;&nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;data,&nbsp;if&nbsp;any,&nbsp;is&nbsp;available&nbsp;in&nbsp;'this'<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(typeof&nbsp;console&nbsp;!==&nbsp;'undefined')<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;You&nbsp;pressed&nbsp;the&nbsp;button&quot;);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;});<br/>}<br/><br/>if&nbsp;(Meteor.isServer)&nbsp;{<br/>&nbsp;&nbsp;Meteor.startup(function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;code&nbsp;to&nbsp;run&nbsp;on&nbsp;server&nbsp;at&nbsp;startup<br/>&nbsp;&nbsp;});<br/>}
+        </div>
+      </div>
+
+      <p>Let's go through these one part at a time. The first few lines of <span class="code">myFirstApp.html</span> are the head, where you put the title of your application that appears in the browser tab. Notice that you don't need the <span class="code">&lt;!DOCTYPE HTML&gt;</span> tag; Meteor provides that for you when it bundles all of the files on the server.</p>
+
+      <p>Next, you have the <span class="code">&lt;body&gt;</span> tag. Inside is a template render statement in handlebars.</p>
+
+      <div class="panel">
+        <div class="code">
+          &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;hello}}&nbsp;//This&nbsp;renders&nbsp;the&nbsp;template&nbsp;named&nbsp;&quot;hello&quot;<br/>&lt;/body&gt;
+        </div>
+      </div>
+
+      <p>The last thing is the hello template, which is rendered in the body. The code is on the left and the rendered html is on the right.</p>
+      <div class="row">
+        <div class="large-6 columns">
+          <div class="panel">
+            <div class="code">
+              &lt;template&nbsp;name=&quot;hello&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Hello&nbsp;World!&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{greeting}}<br/>&nbsp;&nbsp;&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&quot;&nbsp;/&gt;<br/>&lt;/template&gt;
+            </div>
+          </div>
+        </div>
+        <div class="large-6 columns">
+          <div class="panel">
+            <h1>Hello World!</h1>
+            Welcome to myFirstApp.
+            <input type="button" value="Click" />
+            <br/>
+            <br/>
+            <br/>
+          </div>
+        </div>
+      </div>
+
+      <p>The <span class="code">&#123;{greeting}}</span> handlebars tag activates the handlebars helper in <span class="code">myFirstApp.js</span>, which returns the greeting, "Welcome to myFirstApp." </p>
+
+      <div class="panel">
+        <div class="code">
+          Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>};
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

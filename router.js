@@ -11,6 +11,18 @@ Router.map(function () {
     path: '/topics',
     template: 'topics-index'
   });
+  this.route('why-meteor', {
+    path: '/topics/why-meteor',
+    template: 'why-meteor'
+  });
+  this.route('getting-started', {
+    path: '/topics/getting-started',
+    template: 'getting-started'
+  });
+  this.route('first-template', {
+    path: '/topics/first-template',
+    template: 'first-template'
+  });
   this.route('videos', {
     path: '/videos',
     template: 'videos'
