@@ -52,3 +52,6 @@ h6.faded {
   font-weight: bold;
   padding-bottom: 10px;
 }
+.large-6 > .panel {
+  height: 100%;
+}
