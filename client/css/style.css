@@ -1,4 +1,10 @@
 /* CSS declarations go here */
+p {
+  font-family: serif;
+  font-size: 18px;
+  line-height: 32px;
+  letter-spacing: .5px;
+}
 .inactive {
   -webkit-transition: color 1s, -webkit-transform 1s;
   transition: color 1s, transform 1s;
@@ -46,7 +52,14 @@ h6.faded {
 }
 .code {
   font-family: Courier;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.code-inline {
+  font-family: Courier;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: 10px;
 }
 .title {
   font-weight: bold;
