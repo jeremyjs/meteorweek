@@ -1,5 +1,3 @@
-
-
 Router.configure({
   layoutTemplate: 'layout'
 });
@@ -13,33 +11,33 @@ Router.map(function () {
       $(window).scrollTop(0);
     }
   });
-  this.route('topics-index', {
+  this.route('topicsIndex', {
     path: '/topics',
-    template: 'topics-index',
+    template: 'topicsIndex',
     after: function() {
       $('.content-inner').scrollTop(0);
       $(window).scrollTop(0);
     }
   });
-  this.route('why-meteor', {
-    path: '/topics/why-meteor',
-    template: 'why-meteor',
+  this.route('whyMeteor', {
+    path: '/topics/whyMeteor',
+    template: 'whyMeteor',
     after: function() {
       $('.content-inner').scrollTop(0);
       $(window).scrollTop(0);
     }
   });
-  this.route('getting-started', {
-    path: '/topics/getting-started',
-    template: 'getting-started',
+  this.route('gettingStarted', {
+    path: '/topics/gettingStarted',
+    template: 'gettingStarted',
     after: function() {
       $('.content-inner').scrollTop(0);
       $(window).scrollTop(0);
     }
   });
-  this.route('first-template', {
-    path: '/topics/first-template',
-    template: 'first-template',
+  this.route('firstTemplate', {
+    path: '/topics/firstTemplate',
+    template: 'firstTemplate',
     after: function() {
       $('.content-inner').scrollTop(0);
       $(window).scrollTop(0);
@@ -87,11 +85,15 @@ Router.map(function () {
   });
   this.route('blog', {
     path: '/blog',
-    template: 'blog-main',
+    template: 'blog',
     after: function() {
       $('.content-inner').scrollTop(0);
       $(window).scrollTop(0);
     }
+  });
+  this.route('blog', {
+    path: '/blog/:slug',
+    template: 'blog'
   });
   this.route('contact', {
     path: '/contact',

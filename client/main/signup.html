@@ -1,0 +1,52 @@
+<template name="signup">
+  <div class="row">
+    <div class="large-12 columns">
+      <h1><span class="brand-inline">Meteor Week</span> - Launch Your Learning </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="panel">
+        <h3> <span class="brand-inline">Meteor Week</span> is your one-stop shop for learning Meteor. </h3>
+        <p> Here's what the learning page looks like: </p>
+        {{> topicsIndexInner}}
+        <div class="row">
+          <div class="large-12 columns">
+            <h3> Now We Take Your Hard-Earned Money </h3>
+            <p>Join <span class="brand-inline">Meteor Week</span> for only $70, less than the average college textbook.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns text-center">
+      <h1>Join <span class="brand-inline">Meteor Week</span>.</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-4 large-offset-4 columns">
+      <form id="contact-form">
+        <label>Name</label>
+        <input type="text" placeholder="Neil Armstrong" tabindex="1" required/>
+
+        <label>Email</label>
+        <input type="email" placeholder="user@domain.com"  tabindex="2" required/>
+
+        <label>Password</label>
+        <input type="password" placeholder="> 8 characters"  tabindex="3" required/>
+
+        <label>Textarea Label</label>
+        <textarea placeholder="Anything in particular you would like to see from us?" tabindex="4"></textarea>
+        <br/>
+        <div class="centered">
+          <button class="button-rounded" name="submit" type="" id="contact-submit" tabindex="5">Join</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br/>
+</template>

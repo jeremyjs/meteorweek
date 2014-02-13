@@ -1,4 +1,4 @@
-<template name="topics-index">
+<template name="topicsIndex">
   <div class="row">
     <div class="large-12 columns">
       <h1> Star Map </h1>
@@ -8,33 +8,51 @@
   <div class="row">
     <div class="large-12 columns">
       <div class="panel">
-        <h3>Beginning Tutorials</h3>
-        <ul>
-          <li><a href="/topics/why-meteor">         Why Meteor?           </a></li>
-          <li><a href="/topics/getting-started">    Getting Started       </a></li>
-          <li><a href="/topics/first-template">     Creating a Template   </a></li>
-          <li><a href="/topics/routing-basics">     Routing Basics        </a></li>
-          <li><a href="/topics/intro-collections">  Intro to Collections  </a></li>
-          <li><a href="/topics/pub-sub-intro">      Publish and Subscribe </a></li>
-          <li><a href="/topics/meteor-docs">        The Documentation     </a></li>
-          <li><a href="/topics/atmosphere">         Atmosphere            </a></li>
-        </ul>
-        <h3>Intermediate Tutorials</h3>
-        <ul>
-          <li><a href="/topics/heroku">           Heroku Deployment       </a></li>
-          <li><a href="/topics/mobile-meteor">    Mobile Meteor Apps      </a></li>
-          <li><a href="/topics/accounts">         Accounts                </a></li>
-          <li><a href="/topics/learn-javascript"> Learn You a JavaScript  </a></li>
-        </ul>
-        <h3>Advanced Tutorials</h3>
-        <ul class="inactive">
-          <li><a href="/signup"> Advanced Mongo          </a></li>
-          <li><a href="/signup"> Node.js Fibers          </a></li>
-          <li><a href="/signup"> Custom Packages         </a></li>
-          <li><a href="/signup"> API's                   </a></li>
-          <li><a href="/signup"> Contributing to Meteor  </a></li>
-        </ul>
+        {{> topicsIndexInner}} // because of view on signup page
       </div>
     </div>
+  </div>
+</template>
+
+<template name="topicsIndexInner">
+  <div class="sans">
+    <h3>Beginning Tutorials</h3>
+    <ul>
+      <li><a href="/topics/why-meteor">         Why Meteor?           </a></li>
+      <li><a href="/topics/getting-started">    Getting Started       </a></li>
+      <li><a href="/topics/first-template">     Creating a Template   </a></li>
+  {{#if user}}
+      <li><a href="/topics/routing-basics">     Routing Basics        </a></li>
+      <li><a href="/topics/intro-collections">  Intro to Collections  </a></li>
+      <li><a href="/topics/pub-sub-intro">      Publish and Subscribe </a></li>
+      <li><a href="/topics/meteor-docs">        The Documentation     </a></li>
+      <li><a href="/topics/atmosphere">         Atmosphere            </a></li>
+  {{else}}
+      <li class="inactive"><a href="/topics/routing-basics">     Routing Basics        </a></li>
+      <li class="inactive"><a href="/topics/intro-collections">  Intro to Collections  </a></li>
+      <li class="inactive"><a href="/topics/pub-sub-intro">      Publish and Subscribe </a></li>
+      <li class="inactive"><a href="/topics/meteor-docs">        The Documentation     </a></li>
+      <li class="inactive"><a href="/topics/atmosphere">         Atmosphere            </a></li>
+  {{/if}}
+    </ul>
+    <h3>Intermediate Tutorials</h3>
+  {{#if user}}
+    <ul>
+  {{else}}
+    <ul class="inactive">
+  {{/if}}
+      <li><a href="/topics/heroku">           Heroku Deployment       </a></li>
+      <li><a href="/topics/mobile-meteor">    Mobile Meteor Apps      </a></li>
+      <li><a href="/topics/accounts">         Accounts                </a></li>
+      <li><a href="/topics/learn-javascript"> Learn You a JavaScript  </a></li>
+    </ul>
+    <h3>Advanced Tutorials</h3>
+    <ul class="inactive">
+      <li><a href="/signup"> Advanced Mongo          </a></li>
+      <li><a href="/signup"> Node.js Fibers          </a></li>
+      <li><a href="/signup"> Custom Packages         </a></li>
+      <li><a href="/signup"> API's                   </a></li>
+      <li><a href="/signup"> Contributing to Meteor  </a></li>
+    </ul>
   </div>
 </template>

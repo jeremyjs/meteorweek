@@ -5,6 +5,10 @@ p {
   line-height: 32px;
   letter-spacing: .5px;
 }
+.panel ul {
+  font-family: serif;
+  font-size: 18px;
+}
 .inactive {
   -webkit-transition: color 1s, -webkit-transform 1s;
   transition: color 1s, transform 1s;
@@ -23,7 +27,7 @@ p {
   transition-delay: .5s;
 }
 .highlighted {
-  background-color: #FFFF00
+  background-color: #FFFF33
 }
 .gray {
   color: #B2B2B2;
@@ -31,10 +35,10 @@ p {
 .blue {
   color: #1947D1;
 }
-.ul-centered {
+.centered {
   text-align: center;
 }
-.ul-centered > li {
+ul.centered > li {
   display: inline-block;
   float: none
 }
@@ -46,6 +50,10 @@ form {
 }
 h6.faded {
   color:  #444;
+}
+.brand-inline {
+  font-weight: bold;
+  display: inline-block;
 }
 .spaced {
   padding-top: 10px;
@@ -59,7 +67,7 @@ h6.faded {
   font-family: Courier;
   font-size: 16px;
   line-height: 24px;
-  padding-left: 10px;
+  padding-left: 4px;
 }
 .title {
   font-weight: bold;
@@ -67,4 +75,14 @@ h6.faded {
 }
 .large-6 > .panel {
   height: 100%;
+}
+button,
+a.button {
+  padding-top: .8rem;
+  padding-bottom: .65rem;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+.sans, .sans * {
+  font-family: sans-serif;
 }

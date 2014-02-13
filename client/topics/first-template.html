@@ -1,4 +1,4 @@
-<template name="first-template">
+<template name="firstTemplate">
   <div class="row">
     <div class="large-12 columns">
       <h2 class="active-text"> Your First Template </h2>
@@ -6,10 +6,120 @@
       <p>In Meteor, templates are declared like this:</p>
 
       <div class="code panel">
-        &lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template.&lt;/h1&gt;<br/>&lt;/template&gt;
+        &lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template!&lt;/h1&gt;<br/>&lt;/template&gt;
       </div>
 
-      <a href="getting-started" class="button button-rounded centered"> <&nbsp;&nbsp; Getting Started </a>
+      <p>
+        We can put our templates in any .html file and they will be available to us by using <span class="code">&#123;{> myTemplate}}</span>
+      </p>
+
+      <div class="code panel">
+        <h5 class="title">main.html</h5>
+        <div class="code">
+          &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&lt;/template&gt;
+        </div>
+      </div>
+
+      <div class="panel">
+        <h5 class="title">localhost:3000</h5>
+        <h1>This is a template</h1>
+      </div>
+
+      <p>
+        We can use handlebars helpers like <span class="code">&#123;{myHelper}}</span> which will call the javascript function that is bound to our template under the name "myHelper".
+      </p>
+
+      <div class="code panel">
+        <h5 class="title">main.html</h5>
+        <div class="code">
+          &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&nbsp;&nbsp;&lt;p&gt;My&nbsp;name&nbsp;is&nbsp;&#123;{name}}!&lt;/p&gt;<br/>&lt;/template&gt;
+        </div>
+      </div>
+
+      <div class="code panel">
+        <h5 class="title">main.js</h5>
+        <div class="code">
+          if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.name&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Donald&nbsp;Knuth&quot;;<br/>&nbsp;&nbsp;}<br/>}
+        </div>
+      </div>
+
+      <div class="panel">
+        <h5 class="title">localhost:3000</h5>
+        <h1>This is a template</h1>
+        <p>My name is Donald Knuth!</p>
+      </div>
+
+      <p>
+        We can also use <span class="code">&#123;{#each}}</span> to iterate over a list of things and do something for each.
+      </p>
+
+      <div class="code panel">
+        <h5 class="title">main.html</h5>
+        <div class="code">
+          &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{#each&nbsp;people}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;My&nbsp;name&nbsp;is&nbsp;&#123;{name}}!&lt;/p&gt;<br/>&nbsp;&nbsp;&#123;{/each}}<br/>&lt;/template&gt;
+        </div>
+      </div>
+
+      <div class="code panel">
+        <h5 class="title">main.js</h5>
+        <div class="code">
+          if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&quot;Donald&nbsp;Knuth&quot;,&nbsp;&quot;Donald&nbsp;Trump&quot;,&nbsp;&quot;Donald&nbsp;Duck&quot;];<br/>&nbsp;&nbsp;}<br/>}
+        </div>
+      </div>
+
+      <div class="panel">
+        <h5 class="title">localhost:3000</h5>
+        <h1>This is a template</h1>
+      {{#each names}}
+        <p>My name is {{this}}.</p>
+      {{/each}}
+      </div>
+
+      <p>
+        We can do this for objects too.
+      </p>
+
+      <div class="code panel">
+        <h5 class="title">main.js</h5>
+        <div class="code">
+          if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&quot;Donald&nbsp;Knuth&quot;,&nbsp;&quot;Donald&nbsp;Trump&quot;,&nbsp;&quot;Donald&nbsp;Duck&quot;];<br/>&nbsp;&nbsp;}<br/>}
+        </div>
+      </div>
+
+      <div class="panel">
+        <h5 class="title">localhost:3000</h5>
+        <h1>This is a template</h1>
+      {{#each namesAndColors}}
+        <p>My name is {{this.name}}. My favorite color is {{this.color}}.</p>
+      {{/each}}
+      </div>
+
+      <p>
+        We can do this for objects too.
+      </p>
+
+      <div class="code panel">
+        <h5 class="title">main.js</h5>
+        <div class="code">
+          if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&quot;Donald&nbsp;Knuth&quot;,&nbsp;&quot;Donald&nbsp;Trump&quot;,&nbsp;&quot;Donald&nbsp;Duck&quot;];<br/>&nbsp;&nbsp;}<br/>}
+        </div>
+      </div>
+
+      <div class="panel">
+        <h5 class="title">localhost:3000</h5>
+        <h1>This is a template</h1>
+      {{#each namesAndColors}}
+        <p>My name is {{this.name}}. My favorite color is {{this.color}}.</p>
+      {{/each}}
+      </div>
+
+
+
+
+
+
+
+      <a href="getting-started" class="button button-rounded centered"> &lt;&nbsp;&nbsp; Getting Started </a>
 
     </div>
   </div>

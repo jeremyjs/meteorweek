@@ -1,29 +1,39 @@
-<template name="getting-started">
+<template name="gettingStarted">
   <div class="row">
     <div class="large-8 large-offset-2 columns">
-      <h1> Welcome to <span class="brand"><strong>Meteor Week</strong></span></h1>
+      <h1> Welcome to <span class="brand-inline">Meteor Week</span></h1>
     </div>
   </div>
 
   <div class="row">
     <div class="large-8 large-offset-2 columns">
-      <iframe width="100%" height="auto" src="//www.youtube.com/embed/7ntsxxA2rOw" frameborder="0" allowfullscreen></iframe>
+      <iframe width="100%" height="480" src="//www.youtube.com/embed/7ntsxxA2rOw" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" style="margin-top: 20px;">
     <div class="large-8 large-offset-2 columns">
 
-      <p>Let's install Meteor! Throughout this tutorial, shell commands and Meteor code are shown in a box like the one below.</p>
+      <p>
+        Let's install Meteor! Throughout this tutorial, shell commands and Meteor code are shown in a box like the one below.
+      </p>
+
       <p>Type the following into your shell to install Meteor:</p>
+
       <div class="code panel">
         $ curl https://install.meteor.com/ | sh
       </div>
-      <p>If you don't have curl installed, you can get it on most linux distributions with <span class="code-inline"> sudo apt-get install curl</span>.</p>
 
-      <p>Okay, let's create our first application! Pick a location where you'd like to create the project. I suggest making a folder called "MeteorApps" for all of your meteor projects. All you have to do to create a meteor app is use the meteor create command:</p>
+      <p>
+        If you don't have curl installed, you can get it on most linux distributions with<span class="code-inline"> sudo apt-get install curl</span>. It should be included by default on Mac.
+      </p>
+
+      <p>
+        Okay, let's create our first application! Pick a location where you'd like to create the project. I suggest making a folder for all of your meteor projects. All you have to do to create a meteor app is use the meteor create command:
+      </p>
+
       <div class="code panel">
-        $ cd MeteorApps <br/>
+        $ cd MeteorAppsDir <br/>
         $ meteor create myFirstApp <br/>
         myFirstApp: created. <br/>
         ... <br/>
@@ -36,22 +46,31 @@
         $ ls <br/>
         myFirstApp.css&nbsp;&nbsp;myFirstApp.html&nbsp;&nbsp;myFirstApp.js
       </div>
-      <p>In your new app, you'll find three files: <span class="code-inline">myFirstApp.html</span>, <span class="code-inline">myFirstApp.css</span>, and <span class="code-inline">myFirstApp.js</span>. Let's go ahead and run the local server. All you have to do is:</p>
+
+      <p>
+        In your new app, you'll find three files: <span class="code-inline">myFirstApp.html</span>, <span class="code-inline">myFirstApp.css</span>, and <span class="code-inline">myFirstApp.js</span>. Let's go ahead and run the local server. All you have to do is:
+      </p>
+
       <div class="code panel">
-        $ meteor <br/>
+        $ meteor
 <!--         [[[[[ ~/meteor/meteor-week ]]]]] <br/>
         <br/>
         => Meteor server running on: http://localhost:3000/ -->
       </div>
+
       <p>Now you can check out the site by opening a new browser tab and going to http://localhost:3000/</p>
 
       <p>You should see something like this:</p>
+
       <div class="panel">
         <h1>Hello World!</h1>
         Welcome to myFirstApp.
         <input type="button" value="Click" />
       </div>
-      <p>Now open up your project files in your favorite text editor. If you haven't tried it yet, I recommend <a href="http://www.sublimetext.com/">Sublime Text</a>.</p>
+
+      <p>
+        Now open up your project files in your favorite text editor. If you haven't tried it yet, I recommend <a href="http://www.sublimetext.com/">Sublime Text</a>.
+      </p>
 
       <div class="code panel">
         <h5 class="title">myFirstApp.html</h5>
@@ -66,9 +85,13 @@
         </div>
       </div>
 
-      <p>Let's go through these one part at a time. The first few lines of <span class="code-inline">myFirstApp.html</span> are the head, where you put the title of your application that appears in the browser tab. Notice that you don't need the <span class="code-inline">&lt;!DOCTYPE HTML&gt;</span> tag; Meteor provides that for you when it bundles all of the files on the server.</p>
+      <p>
+        Let's go through these one part at a time. The first few lines of <span class="code-inline">myFirstApp.html</span> are the head, where you put the title of your application that appears in the browser tab. Notice that you don't need the <span class="code-inline">&lt;!DOCTYPE HTML&gt;</span> tag; Meteor provides that for you when it bundles all of the files on the server.
+      </p>
 
-      <p>Next, you have the <span class="code-inline">&lt;body&gt;</span> tag. Inside is a template render statement in handlebars.</p>
+      <p>
+        Next, you have the <span class="code-inline">&lt;body&gt;</span> tag. Inside is a template render statement in handlebars.
+      </p>
 
       <div class="panel">
         <h5 class="title">myFirstApp.html</h5>
@@ -77,7 +100,9 @@
         </div>
       </div>
 
-      <p>The last thing in <span class="code-inline">myFirstApp.html</span> is the hello template, which is rendered in the body. The code is on the left and the rendered html is on the right.</p>
+      <p>
+        The last thing in <span class="code-inline">myFirstApp.html</span> is the hello template, which is rendered in the body.
+      </p>
 
       <div class="panel">
         <h5 class="title">myFirstApp.html</h5>
@@ -94,27 +119,25 @@
 
       <p>Here comes the cool part. Try changing the "Hello World!" heading tag to anything you want.</p>
 
-      <div class="row">
-        <div class="large-6 columns">
-          <div class="panel">
-            <h5 class="title">myFirstApp.html</h5>
-            <div class="code">
-              &lt;template&nbsp;name=&quot;hello&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Greetings, World!&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{greeting}}<br/>&nbsp;&nbsp;&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&quot;&nbsp;/&gt;<br/>&lt;/template&gt;
-            </div>
-          </div>
-        </div>
-        <div class="large-6 columns">
-          <div class="panel" style="height: 180px;">
-            <h1>Greetings, World!</h1>
-            Welcome to myFirstApp.
-            <input type="button" value="Click" />
-          </div>
+      <div class="panel">
+        <h5 class="title">myFirstApp.html</h5>
+        <div class="code">
+          &lt;template&nbsp;name=&quot;hello&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Greetings, World!&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{greeting}}<br/>&nbsp;&nbsp;&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&quot;&nbsp;/&gt;<br/>&lt;/template&gt;
         </div>
       </div>
+      <div class="panel" style="height: 180px;">
+        <h1>Greetings, World!</h1>
+        Welcome to myFirstApp.
+        <input type="button" value="Click" />
+      </div>
 
-      <p> You'll be able to see the difference on the web page immediately, without the need to refresh the page. This is what's called a "hot code push". If you were to change the code in a production server, your users would all see the change right away.</p>
+      <p>
+        You'll be able to see the difference on the web page immediately, without the need to refresh the page or restart the server. This is what's called a "hot code push". If you were to change the code in a production server, your users would all see the change right away.
+      </p>
 
-      <p>Next, we'll learn about handlebars helpers. The <span class="code-inline">&#123;{greeting}}</span> handlebars tag activates the handlebars helper in <span class="code-inline">myFirstApp.js</span>, which returns the greeting, "Welcome to myFirstApp."</p>
+      <p>
+        Next, we'll learn about handlebars helpers. The <span class="code-inline">&#123;{greeting}}</span> handlebars tag activates the handlebars helper in <span class="code-inline">myFirstApp.js</span>, which returns the greeting, "Welcome to myFirstApp."
+      </p>
 
       <div class="panel">
         <h5 class="title">myFirstApp.js</h5>
@@ -125,27 +148,25 @@
 
       <p>Go ahead and change the greeting.</p>
 
-      <div class="row">
-        <div class="large-6 columns">
-          <div class="panel">
-            <h5 class="title">myFirstApp.js</h5>
-            <div class="code">
-              Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;return&nbsp;&quot;Welcome to Meteor!&quot;;<br/>};
-            </div>
-          </div>
-        </div>
-        <div class="large-6 columns">
-          <div class="panel" style="height: 140px;">
-            <h1>Greetings, World!</h1>
-            Welcome to Meteor!
-            <input type="button" value="Click" />
-          </div>
+      <div class="panel">
+        <h5 class="title">myFirstApp.js</h5>
+        <div class="code">
+          Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;return&nbsp;&quot;Welcome to Meteor!&quot;;<br/>};
         </div>
       </div>
+      <div class="panel" style="height: 140px;">
+        <h1>Greetings, World!</h1>
+        Welcome to Meteor!
+        <input type="button" value="Click" />
+      </div>
 
-      <p>As you can see, hot code pushes work for the javascript code as well. Whatever is returned by the greeting function will be rendered directly in the html, including arrays and javascript objects. Later, we'll see how to render collections using handlebars helpers.</p>
+      <p>
+        As you can see, hot code pushes work for the javascript code as well. Whatever is returned by the greeting function will be rendered directly in the html, including arrays and javascript objects. Later, we'll see how to render collections using handlebars helpers.
+      </p>
 
-      <p>In addition to helpers, which are called inside the curlybraces, we can also set event handlers for certain actions the user might take, such as clicking on buttons. That's what the next part of our <span class="code-inline">myFirstApp.js</span> does:</p>
+      <p>
+        In addition to helpers, which are called inside the curlybraces, we can also set event handlers for certain actions the user might take, such as clicking on buttons. That's what the next part of <span class="code-inline">myFirstApp.js</span> does:
+      </p>
 
       <div class="panel">
         <h5 class="title">myFirstApp.js</h5>
@@ -154,46 +175,59 @@
         </div>
       </div>
 
-      <p>It's a pretty intuitive syntax, 'click input'. So obviously, whenever someone clicks on any input element in the hello template, this function will be called. Really all this code does now is log a message to the browser console. Let's change it to do something more reactive, like display a hello message just below the rest of the elements on the page.</p>
+      <p>
+        It's a pretty intuitive syntax, 'click input'. So whenever someone clicks on any input element in the hello template, this function will be called. All this function does is log a message to the browser console whenever the button is clicked. The developer tools, including the browser console can be opened in most browsers with f12 or in safari, ⌥⌘C (Ctrl-Alt-C when using safari in an OS other than Mac)
+      </p>
 
       <p>
-        First, we want to install jQuery into our Meteor app. In Meteor, adding a javascript library is easy. jQuery is a built-in package, so without downloading anything from the internet, we just do:
+        There's one more thing you should know about Meteor apps. If you look in <span class="code-inline">myFirstApp.js</span>, you'll see two statements: <span class="code-inline">Meteor.isClient</span> and <span class="code-inline">Meteor.isServer</span>. In Meteor, javascript code is used on both the client side and the server side. This is because Meteor is built on Node.js which uses server side javascript code. This is good for us because we only have to learn one language for both the front end and the back end. These statements tell us whether we are running on the client or server. The cool thing is that we can write helper functions in another file that can be used anywhere. Let's make one now.
+      </p>
+
+      <p>
+        Let's create a new file in your myFirstApp directory called helpers.js, and write a function to log to the console.
       </p>
 
       <div class="panel">
+        <h5 class="title">helpers.js</h5>
         <div class="code">
-          $ meteor add jquery <br/>
-          jquery: jQuery 2.0.3
+          log&nbsp;=&nbsp;function(string)&nbsp;{<br/>&nbsp;&nbsp;console.log(string);<br/>}
         </div>
       </div>
 
       <p>
-        Now we can use jQuery in our app. Let's just append a message to the body every time the button is pressed. The $ is how you create jQuery objects. jQuery is a javascript library with many useful functions such as append, which adds html content directly into the page.
+        Now, we can call our function on both the client and the server in<span class="code-inline">myFirstApp.js</span>:
       </p>
 
       <div class="panel">
         <h5 class="title">myFirstApp.js</h5>
         <div class="code">
-        Template.hello.events({<br/>&nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;data,&nbsp;if&nbsp;any,&nbsp;is&nbsp;available&nbsp;in&nbsp;'this'<br/>&nbsp;&nbsp;&nbsp;&nbsp;$(&quot;body&quot;).append(&quot;&lt;br&gt;Hello&nbsp;world!&quot;);<br/>&nbsp;&nbsp;}<br/>});
+          if&nbsp;(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>&nbsp;&nbsp;};<br/><br/>&nbsp;&nbsp;Template.hello.events({<br/>&nbsp;&nbsp;&nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;data,&nbsp;if&nbsp;any,&nbsp;is&nbsp;available&nbsp;in&nbsp;'this'<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(typeof&nbsp;console&nbsp;!==&nbsp;'undefined')<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlighted">log(&quot;You&nbsp;pressed&nbsp;the&nbsp;button&nbsp;on&nbsp;the&nbsp;client&nbsp;side!&quot;);</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;});<br/>}<br/><br/>if&nbsp;(Meteor.isServer)&nbsp;{<br/>&nbsp;&nbsp;Meteor.startup(function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;code&nbsp;to&nbsp;run&nbsp;on&nbsp;server&nbsp;at&nbsp;startup<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlighted">log(&quot;I'm&nbsp;on&nbsp;the&nbsp;server!&quot;);</span><br/>&nbsp;&nbsp;});<br/>}
         </div>
       </div>
 
       <p>
-        Meteor bundles all the javascript code the same file before it's sent to the client. You use the <span class="code-inline">Meteor.isClient</span> and the <span class="code-inline">Meteor.isServer</span> variables to determine whether your code where your code will be available two functions
+        On the server, (in the terminal), you should see something like:
       </p>
 
       <div class="panel">
-
+        <div class="code">
+          I20140208-22:09:44.411(-5)? I'm on the server!
+        </div>
       </div>
 
+      <p>
+        On the client, you should see "You pressed the button on the client side!" logged to the browser console whenever the button is clicked.
+      </p>
+
+      <p>
+
+      </p>
+
       <div class="row">
-        <div class="large-4 columns">
+        <div class="large-6 columns">
           <a href="why-meteor" class="button button-rounded centered"> <&nbsp;&nbsp; Why Meteor </a>
         </div>
-        <div class="large-4 columns">
-          <!-- Spacing -->
-        </div>
-        <div class="large-4 columns" style="text-align: right;">
+        <div class="large-6 columns" style="text-align: right;">
           <a href="first-template" class="button button-rounded centered"> Your First Template &nbsp;&nbsp;> </a>
         </div>
       </div>
