@@ -1,8 +1,8 @@
 <template name="firstTemplate">
   <div class="row">
-    <div class="large-12 columns">
-      <h2 class="active-text"> Your First Template </h2>
-      <br/>
+    <div class="large-8 large-offset-2 columns">
+      <h1> Your First Template</h1>
+      <hr/>
       <p>In Meteor, templates are declared like this:</p>
 
       <div class="code panel">
@@ -26,7 +26,7 @@
       </div>
 
       <p>
-        We can use handlebars helpers like <span class="code">&#123;{myHelper}}</span> which will call the javascript function that is bound to our template under the name "myHelper".
+        We can use handlebars helpers like <span class="code">&#123;{name}}</span> which will call the javascript function that is bound to our template with <span class="code">Template.myTemplate.name</span>
       </p>
 
       <div class="code panel">
@@ -46,7 +46,7 @@
       <div class="panel">
         <h5 class="title">localhost:3000</h5>
         <h1>This is a template</h1>
-        <p>My name is Donald Knuth!</p>
+        <p>My name is {{onamae}}!</p>
       </div>
 
       <p>
@@ -56,7 +56,7 @@
       <div class="code panel">
         <h5 class="title">main.html</h5>
         <div class="code">
-          &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{#each&nbsp;people}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;My&nbsp;name&nbsp;is&nbsp;&#123;{name}}!&lt;/p&gt;<br/>&nbsp;&nbsp;&#123;{/each}}<br/>&lt;/template&gt;
+          &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{#each&nbsp;people}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;My&nbsp;name&nbsp;is&nbsp;&#123;{this}}!&lt;/p&gt;<br/>&nbsp;&nbsp;&#123;{/each}}<br/>&lt;/template&gt;
         </div>
       </div>
 
@@ -76,50 +76,89 @@
       </div>
 
       <p>
-        We can do this for objects too.
+        <span class="code">this</span> is a special key word that just means, "whatever is returned by the helper". Here, the helper is an <span class="code">&#123;{#each}}</span> helper, so it returns a list, which is represented in Javascript by the square brackets: <span class="code">[]</span>. For our helper, <span class="code">this</span> means "each item in our list".
       </p>
+
+      <p>
+        When we learn about collections in the next tutorial, we'll learn how helpers can iterate over objects too. Here's a sneak peek:
+      </p>
+
+      <div class="code panel">
+        <h5 class="title">main.html</h5>
+        <div class="code">
+          &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{#each&nbsp;people}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;{this.name}}'s&nbsp;favorite&nbsp;color&nbsp;is&nbsp;&#123;{this.color}}!<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br/>&nbsp;&nbsp;&#123;{/each}}<br/>&lt;/template&gt;
+        </div>
+      </div>
 
       <div class="code panel">
         <h5 class="title">main.js</h5>
         <div class="code">
-          if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&quot;Donald&nbsp;Knuth&quot;,&nbsp;&quot;Donald&nbsp;Trump&quot;,&nbsp;&quot;Donald&nbsp;Duck&quot;];<br/>&nbsp;&nbsp;}<br/>}
+          if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Knuth&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Blue&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Trump&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Green&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Duck&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Red&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}];<br/>&nbsp;&nbsp;}<br/>}
         </div>
       </div>
 
       <div class="panel">
         <h5 class="title">localhost:3000</h5>
         <h1>This is a template</h1>
-      {{#each namesAndColors}}
-        <p>My name is {{this.name}}. My favorite color is {{this.color}}.</p>
+      {{#each people}}
+        <p>{{this.name}}'s favorite color is {{this.color}}!</p>
       {{/each}}
       </div>
 
       <p>
-        We can do this for objects too.
+        We can also use a little bit of conditional logic in our templates. What if we only wanted to show the favorite color of Donald Trump and "Yellow" otherwise?
       </p>
+
+      <div class="code panel">
+        <h5 class="title">main.html</h5>
+        <div class="code">
+          &lt;body&gt;<br/>&nbsp;&nbsp;&#123;&#123;&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;&#123;#each&nbsp;people}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;#if&nbsp;isTrump}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;this.name}}'s&nbsp;favorite&nbsp;color&nbsp;is&nbsp;&#123;&#123;this.color}}!<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;else}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;this.name}}'s&nbsp;favorite&nbsp;color&nbsp;is&nbsp;Yellow!<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;/if}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br/>&nbsp;&nbsp;&#123;&#123;/each}}<br/>&lt;/template&gt;
+        </div>
+      </div>
 
       <div class="code panel">
         <h5 class="title">main.js</h5>
         <div class="code">
-          if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&quot;Donald&nbsp;Knuth&quot;,&nbsp;&quot;Donald&nbsp;Trump&quot;,&nbsp;&quot;Donald&nbsp;Duck&quot;];<br/>&nbsp;&nbsp;}<br/>}
+          if(Meteor.isClient)&nbsp;&#123;<br/>&nbsp;&nbsp;Template.myTemplate.isTrump&nbsp;=&nbsp;function()&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.name&nbsp;===&nbsp;&quot;Donald&nbsp;Trump&quot;;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Knuth&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Blue&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Trump&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Green&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Duck&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Red&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}];<br/>&nbsp;&nbsp;}<br/>}
         </div>
       </div>
 
       <div class="panel">
         <h5 class="title">localhost:3000</h5>
         <h1>This is a template</h1>
-      {{#each namesAndColors}}
-        <p>My name is {{this.name}}. My favorite color is {{this.color}}.</p>
-      {{/each}}
+        {{#each people}}
+            {{#if isTrump}}
+            <p>{{this.name}}'s favorite color is {{this.color}}!</p>
+            {{else}}
+            <p>{{this.name}}'s favorite color is Yellow!</p>
+            {{/if}}
+        {{/each}}
       </div>
 
+      <p>
+        Finally, let's learn about events!
+      </p>
 
+      <div class="code panel">
+        <h5 class="title">main.html</h5>
+        <div class="code">
+          &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Template&nbsp;events&nbsp;coming&nbsp;soon!&lt;/h1&gt;<br/>&lt;/template&gt;
+        </div>
+      </div>
 
+      <div class="panel">
+        <h5 class="title">localhost:3000</h5>
+        <h1>Template events coming soon!</h1>
+      </div>
 
-
-
-
-      <a href="getting-started" class="button button-rounded centered"> &lt;&nbsp;&nbsp; Getting Started </a>
+      <div class="row">
+        <div class="large-6 columns">
+          <a href="getting-started" class="button button-rounded centered"> &lt;&nbsp;&nbsp; Getting Started </a>
+        </div>
+        <div class="large-6 columns" style="text-align: right;">
+          <a href="first-template" class="button button-rounded centered disabled"> Intro to Collections &nbsp;&nbsp;> </a>
+        </div>
+      </div>
 
     </div>
   </div>

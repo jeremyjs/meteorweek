@@ -20,7 +20,7 @@ Router.map(function () {
     }
   });
   this.route('whyMeteor', {
-    path: '/topics/whyMeteor',
+    path: '/topics/why-meteor',
     template: 'whyMeteor',
     after: function() {
       $('.content-inner').scrollTop(0);
@@ -28,7 +28,7 @@ Router.map(function () {
     }
   });
   this.route('gettingStarted', {
-    path: '/topics/gettingStarted',
+    path: '/topics/getting-started',
     template: 'gettingStarted',
     after: function() {
       $('.content-inner').scrollTop(0);
@@ -36,7 +36,7 @@ Router.map(function () {
     }
   });
   this.route('firstTemplate', {
-    path: '/topics/firstTemplate',
+    path: '/topics/first-template',
     template: 'firstTemplate',
     after: function() {
       $('.content-inner').scrollTop(0);

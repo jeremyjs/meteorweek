@@ -1,13 +1,14 @@
 /* CSS declarations go here */
 p {
-  font-family: serif;
+  font-family: sans-serif;
   font-size: 18px;
   line-height: 32px;
   letter-spacing: .5px;
 }
 .panel ul {
-  font-family: serif;
+  font-family: sans-serif;
   font-size: 18px;
+  padding-left: 18px;
 }
 .inactive {
   -webkit-transition: color 1s, -webkit-transform 1s;
@@ -19,6 +20,9 @@ p {
 .inactive a {
   color: #B2B2B2;
   text-decoration: none;
+}
+.disabled {
+  pointer-events: none;
 }
 .active {
   -webkit-transition: color 1s, -webkit-transform 1s;
@@ -83,6 +87,6 @@ a.button {
   padding-left: 1.2rem;
   padding-right: 1.2rem;
 }
-.sans, .sans * {
+.serif, .serif * {
   font-family: sans-serif;
 }
