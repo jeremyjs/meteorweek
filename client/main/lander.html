@@ -1,11 +1,20 @@
 <template name="lander">
   <div class="container-full">
+
     {{> nav}}
+
     <div class="row">
       <div class="col-lg-12 text-center v-center">
-        <h1>Welcome to <strong>Meteor Week</strong></h1>
+        <h1 class="lander">Welcome to <strong>Meteor Week</strong></h1>
         <h5 class="lead">Learn web development the easy way</h5>
 
+        <div class="row">
+          <br><br><br><br>
+          <div class="col-md-2 col-md-offset-5">
+            <a href="/topics" class="btn btn-default btn-lg centered">View Topics</a>
+          </div>
+        </div>
+<!--
         <div class="row">
           <div class="col-md-2 col-md-offset-5">
             <form id="signup" class="lander-form" role="form">
@@ -25,7 +34,7 @@
           <div class="signup-alert" style="color:#F00;text-align:center;margin:0 auto;">
           </div>
         </div>
-
+ -->
       </div>
     </div> <!-- /row -->
 
@@ -40,42 +49,38 @@
   </div> <!-- /container full -->
 
   <div class="container">
-    <hr/>
+    <br>
 
     <div class="row">
       <div class="col-md-4">
         <div class="panel panel-default">
-          <div class="panel-heading"><h3>Meteor is the future.</h3></div>
-          <div class="panel-body"> <a href="http://www.meteor.com" target="_blank">Meteor</a> is a full-stack web development framework that makes developing web and mobile applications easier than ever before.
+          <div class="panel-body">
+            <h3 class="lander">Meteor is the future.</h3>
+            <a href="http://www.meteor.com" target="_blank">Meteor</a> is a full-stack web development framework that makes developing web and mobile applications easier than ever before.
           </div>
         </div>
       </div>
     	<div class="col-md-4">
       	<div class="panel panel-default">
-          <div class="panel-heading"><h3>Learn web development.</h3></div>
-          <div class="panel-body">Through a series of videos and interactive tutorials, we show you how to develop amazing Meteor applications.
+          <div class="panel-body">
+            <h3 class="lander">Learn web development.</h3>
+            Through a series of videos and interactive tutorials, we show you how to develop amazing Meteor applications.
           </div>
         </div>
       </div>
     	<div class="col-md-4">
       	<div class="panel panel-default">
-          <div class="panel-heading"><h3>Get personalized support.</h3></div>
-          <div class="panel-body">We're available 24/7 in case you get stuck.
+          <div class="panel-body">
+            <h3 class="lander">Get personalized support.</h3>
+            We're available 24/7 in case you get stuck.
+            <br><br><br>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-12">
-      <br><br>
-        <p class="pull-right"> &nbsp; ©Copyright 2014 Meteor Week</p>
-      <br><br>
-      </div>
-    </div>
+    {{> footer}}
+
   </div>
-
-  <!-- <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-  <!-- <script type='text/javascript' src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script> -->
 
 </template>

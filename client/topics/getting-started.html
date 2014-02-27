@@ -1,18 +1,11 @@
 <template name="gettingStarted">
   <div class="row">
-    <div class="large-8 large-offset-2 columns">
-      <h1> Welcome to <span class="brand-inline">Meteor Week</span></h1>
-    </div>
-  </div>
+    <div class="col-lg-8 col-lg-offset-2">
+      <h2> Welcome to <span class="brand-inline">Meteor Week</span></h2>
 
-  <div class="row">
-    <div class="large-8 large-offset-2 columns">
       <iframe width="100%" height="480" src="//www.youtube.com/embed/7ntsxxA2rOw" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
 
-  <div class="row" style="margin-top: 20px;">
-    <div class="large-8 large-offset-2 columns">
+      <br><br>
 
       <p>
         Let's install Meteor! Throughout this tutorial, shell commands and Meteor code are shown in a box like the one below.
@@ -20,8 +13,10 @@
 
       <p>Type the following into your terminal to install Meteor:</p>
 
-      <div class="code panel">
-        $ curl https://install.meteor.com/ | sh
+      <div class="panel panel-default">
+        <div class="code panel-body">
+          $ curl https://install.meteor.com/ | sh
+        </div>
       </div>
 
       <p>
@@ -32,56 +27,66 @@
         Okay, let's create our first application! Pick a location where you'd like to create the project. I suggest making a folder for all of your meteor projects. All you have to do to create a meteor app is use the meteor create command:
       </p>
 
-      <div class="code panel">
-        $ cd MeteorAppsDir <br/>
-        $ meteor create myFirstApp <br/>
-        myFirstApp: created. <br/>
-        ... <br/>
-<!--         <br/>
-        To run your new app: <br/>
-        &nbsp;&nbsp;&nbsp;cd new <br/>
-        &nbsp;&nbsp;&nbsp;meteor <br/>
- -->
-        $ cd myFirstApp <br/>
-        $ ls <br/>
-        myFirstApp.css&nbsp;&nbsp;myFirstApp.html&nbsp;&nbsp;myFirstApp.js
+      <div class="panel panel-default">
+        <div class="code panel-body">
+          $ cd MeteorAppsDir <br/>
+          $ meteor create myFirstApp <br/>
+          myFirstApp: created. <br/>
+          ... <br/>
+  <!--         <br/>
+          To run your new app: <br/>
+          &nbsp;&nbsp;&nbsp;cd new <br/>
+          &nbsp;&nbsp;&nbsp;meteor <br/>
+   -->
+          $ cd myFirstApp <br/>
+          $ ls <br/>
+          myFirstApp.css&nbsp;&nbsp;myFirstApp.html&nbsp;&nbsp;myFirstApp.js
+        </div>
       </div>
 
       <p>
         In your new app, you'll find three files: <span class="code-inline">myFirstApp.html</span>, <span class="code-inline">myFirstApp.css</span>, and <span class="code-inline">myFirstApp.js</span>. Let's go ahead and run the local server. All you have to do is:
       </p>
 
-      <div class="code panel">
-        $ meteor
-<!--         [[[[[ ~/meteor/meteor-week ]]]]] <br/>
-        <br/>
-        => Meteor server running on: http://localhost:3000/ -->
+      <div class="panel panel-default">
+        <div class="code panel-body">
+          $ meteor
+  <!--         [[[[[ ~/meteor/meteor-week ]]]]] <br/>
+          <br/>
+          => Meteor server running on: http://localhost:3000/ -->
+        </div>
       </div>
 
       <p>Now you can check out the site by opening a new browser tab and going to http://localhost:3000/</p>
 
       <p>You should see something like this:</p>
 
-      <div class="panel">
-        <h1>Hello World!</h1>
-        Welcome to myFirstApp.
-        <input type="button" value="Click" />
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h1>Hello World!</h1>
+          Welcome to myFirstApp.
+          <input type="button" value="Click" />
+        </div>
       </div>
 
       <p>
         Now open up your project files in your favorite text editor. If you haven't tried it yet, I recommend <a href="http://www.sublimetext.com/">Sublime Text</a>.
       </p>
 
-      <div class="code panel">
-        <h5 class="title">myFirstApp.html</h5>
-        <div class="code">
-          &lt;head&gt;<br/>&nbsp;&nbsp;&lt;title&gt;myFirstApp&lt;/title&gt;<br/>&lt;/head&gt;<br/><br/>&lt;body&gt;<br/>&nbsp;&nbsp;&#123;&#123;&gt; hello&#125;&#125;<br/>&lt;/body&gt;<br/><br/>&lt;template name=&quot;hello&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Hello World!&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;&#123;greeting&#125;&#125;<br/>&nbsp;&nbsp;&lt;input type=&quot;button&quot; value=&quot;Click&quot; /&gt;<br/>&lt;/template&gt;
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h5 class="title">myFirstApp.html</h5>
+          <div class="code">
+            &lt;head&gt;<br/>&nbsp;&nbsp;&lt;title&gt;myFirstApp&lt;/title&gt;<br/>&lt;/head&gt;<br/><br/>&lt;body&gt;<br/>&nbsp;&nbsp;&#123;&#123;&gt; hello&#125;&#125;<br/>&lt;/body&gt;<br/><br/>&lt;template name=&quot;hello&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Hello World!&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;&#123;greeting&#125;&#125;<br/>&nbsp;&nbsp;&lt;input type=&quot;button&quot; value=&quot;Click&quot; /&gt;<br/>&lt;/template&gt;
+          </div>
         </div>
       </div>
-      <div class="panel">
-        <h5 class="title">myFirstApp.js</h5>
-        <div class="code">
-          if&nbsp;(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>&nbsp;&nbsp;};<br/><br/>&nbsp;&nbsp;Template.hello.events({<br/>&nbsp;&nbsp;&nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;data,&nbsp;if&nbsp;any,&nbsp;is&nbsp;available&nbsp;in&nbsp;'this'<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(typeof&nbsp;console&nbsp;!==&nbsp;'undefined')<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;You&nbsp;pressed&nbsp;the&nbsp;button&quot;);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;});<br/>}<br/><br/>if&nbsp;(Meteor.isServer)&nbsp;{<br/>&nbsp;&nbsp;Meteor.startup(function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;code&nbsp;to&nbsp;run&nbsp;on&nbsp;server&nbsp;at&nbsp;startup<br/>&nbsp;&nbsp;});<br/>}
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h5 class="title">myFirstApp.js</h5>
+          <div class="code">
+            if&nbsp;(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>&nbsp;&nbsp;};<br/><br/>&nbsp;&nbsp;Template.hello.events({<br/>&nbsp;&nbsp;&nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;data,&nbsp;if&nbsp;any,&nbsp;is&nbsp;available&nbsp;in&nbsp;'this'<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(typeof&nbsp;console&nbsp;!==&nbsp;'undefined')<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;You&nbsp;pressed&nbsp;the&nbsp;button&quot;);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;});<br/>}<br/><br/>if&nbsp;(Meteor.isServer)&nbsp;{<br/>&nbsp;&nbsp;Meteor.startup(function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;code&nbsp;to&nbsp;run&nbsp;on&nbsp;server&nbsp;at&nbsp;startup<br/>&nbsp;&nbsp;});<br/>}
+          </div>
         </div>
       </div>
 
@@ -93,10 +98,12 @@
         Next, you have the <span class="code-inline">&lt;body&gt;</span> tag. Inside is a template render statement in handlebars.
       </p>
 
-      <div class="panel">
-        <h5 class="title">myFirstApp.html</h5>
-        <div class="code">
-          &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;hello}}&nbsp;//This&nbsp;renders&nbsp;the&nbsp;template&nbsp;named&nbsp;&quot;hello&quot;<br/>&lt;/body&gt;
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h5 class="title">myFirstApp.html</h5>
+          <div class="code">
+            &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;hello}}&nbsp;//This&nbsp;renders&nbsp;the&nbsp;template&nbsp;named&nbsp;&quot;hello&quot;<br/>&lt;/body&gt;
+          </div>
         </div>
       </div>
 
@@ -104,31 +111,39 @@
         The last thing in <span class="code-inline">myFirstApp.html</span> is the hello template, which is rendered in the body.
       </p>
 
-      <div class="panel">
-        <h5 class="title">myFirstApp.html</h5>
-        <div class="code">
-          &lt;template&nbsp;name=&quot;hello&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Hello&nbsp;World!&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{greeting}}<br/>&nbsp;&nbsp;&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&quot;&nbsp;/&gt;<br/>&lt;/template&gt;
+      <div class="panel panel-default">
+        <div class="code panel-body">
+          <h5 class="title">myFirstApp.html</h5>
+          <div class="code">
+            &lt;template&nbsp;name=&quot;hello&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Hello&nbsp;World!&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{greeting}}<br/>&nbsp;&nbsp;&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&quot;&nbsp;/&gt;<br/>&lt;/template&gt;
+          </div>
         </div>
       </div>
 
-      <div class="panel" style="height: 180px;">
-        <h1>Hello World!</h1>
-        Welcome to myFirstApp.
-        <input type="button" value="Click" />
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h1>Hello World!</h1>
+          Welcome to myFirstApp.
+          <input type="button" value="Click" />
+        </div>
       </div>
 
       <p>Here comes the cool part. Try changing the "Hello World!" heading tag to anything you want.</p>
 
-      <div class="panel">
-        <h5 class="title">myFirstApp.html</h5>
-        <div class="code">
-          &lt;template&nbsp;name=&quot;hello&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Greetings, World!&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{greeting}}<br/>&nbsp;&nbsp;&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&quot;&nbsp;/&gt;<br/>&lt;/template&gt;
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h5 class="title">myFirstApp.html</h5>
+          <div class="code">
+            &lt;template&nbsp;name=&quot;hello&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Greetings, World!&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{greeting}}<br/>&nbsp;&nbsp;&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&quot;&nbsp;/&gt;<br/>&lt;/template&gt;
+          </div>
         </div>
       </div>
-      <div class="panel" style="height: 180px;">
-        <h1>Greetings, World!</h1>
-        Welcome to myFirstApp.
-        <input type="button" value="Click" />
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h1>Greetings, World!</h1>
+          Welcome to myFirstApp.
+          <input type="button" value="Click" />
+        </div>
       </div>
 
       <p>
@@ -139,25 +154,31 @@
         Next, we'll learn about handlebars helpers. The <span class="code-inline">&#123;{greeting}}</span> handlebars tag activates the handlebars helper in <span class="code-inline">myFirstApp.js</span>, which returns the greeting, "Welcome to myFirstApp."
       </p>
 
-      <div class="panel">
-        <h5 class="title">myFirstApp.js</h5>
-        <div class="code">
-          Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>};
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h5 class="title">myFirstApp.js</h5>
+          <div class="code">
+            Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>};
+          </div>
         </div>
       </div>
 
       <p>Go ahead and change the greeting.</p>
 
-      <div class="panel">
-        <h5 class="title">myFirstApp.js</h5>
-        <div class="code">
-          Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;return&nbsp;&quot;Welcome to Meteor!&quot;;<br/>};
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h5 class="title">myFirstApp.js</h5>
+          <div class="code">
+            Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;return&nbsp;&quot;Welcome to Meteor!&quot;;<br/>};
+          </div>
         </div>
       </div>
-      <div class="panel" style="height: 140px;">
-        <h1>Greetings, World!</h1>
-        Welcome to Meteor!
-        <input type="button" value="Click" />
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h1>Greetings, World!</h1>
+          Welcome to Meteor!
+          <input type="button" value="Click" />
+        </div>
       </div>
 
       <p>
@@ -168,10 +189,12 @@
         In addition to helpers, which are called inside the curlybraces, we can also set event handlers for certain actions the user might take, such as clicking on buttons. That's what the next part of <span class="code-inline">myFirstApp.js</span> does:
       </p>
 
-      <div class="panel">
-        <h5 class="title">myFirstApp.js</h5>
-        <div class="code">
-          Template.hello.events({<br/>&nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;data,&nbsp;if&nbsp;any,&nbsp;is&nbsp;available&nbsp;in&nbsp;'this'<br/>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(typeof&nbsp;console&nbsp;!==&nbsp;'undefined')<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;You&nbsp;pressed&nbsp;the&nbsp;button&quot;);<br/>&nbsp;&nbsp;}<br/>});
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h5 class="title">myFirstApp.js</h5>
+          <div class="code">
+            Template.hello.events({<br/>&nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;data,&nbsp;if&nbsp;any,&nbsp;is&nbsp;available&nbsp;in&nbsp;'this'<br/>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(typeof&nbsp;console&nbsp;!==&nbsp;'undefined')<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;You&nbsp;pressed&nbsp;the&nbsp;button&quot;);<br/>&nbsp;&nbsp;}<br/>});
+          </div>
         </div>
       </div>
 
@@ -187,10 +210,12 @@
         Let's create a new file in your myFirstApp directory called helpers.js, and write a function to log to the console.
       </p>
 
-      <div class="panel">
-        <h5 class="title">helpers.js</h5>
-        <div class="code">
-          log&nbsp;=&nbsp;function(string)&nbsp;{<br/>&nbsp;&nbsp;console.log(string);<br/>}
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h5 class="title">helpers.js</h5>
+          <div class="code">
+            log&nbsp;=&nbsp;function(string)&nbsp;{<br/>&nbsp;&nbsp;console.log(string);<br/>}
+          </div>
         </div>
       </div>
 
@@ -198,10 +223,12 @@
         Now, we can call our function on both the client and the server in<span class="code-inline">myFirstApp.js</span>:
       </p>
 
-      <div class="panel">
-        <h5 class="title">myFirstApp.js</h5>
-        <div class="code">
-          if&nbsp;(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>&nbsp;&nbsp;};<br/><br/>&nbsp;&nbsp;Template.hello.events({<br/>&nbsp;&nbsp;&nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;data,&nbsp;if&nbsp;any,&nbsp;is&nbsp;available&nbsp;in&nbsp;'this'<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(typeof&nbsp;console&nbsp;!==&nbsp;'undefined')<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlighted">log(&quot;You&nbsp;pressed&nbsp;the&nbsp;button&nbsp;on&nbsp;the&nbsp;client&nbsp;side!&quot;);</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;});<br/>}<br/><br/>if&nbsp;(Meteor.isServer)&nbsp;{<br/>&nbsp;&nbsp;Meteor.startup(function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;code&nbsp;to&nbsp;run&nbsp;on&nbsp;server&nbsp;at&nbsp;startup<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlighted">log(&quot;I'm&nbsp;on&nbsp;the&nbsp;server!&quot;);</span><br/>&nbsp;&nbsp;});<br/>}
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h5 class="title">myFirstApp.js</h5>
+          <div class="code">
+            if&nbsp;(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>&nbsp;&nbsp;};<br/><br/>&nbsp;&nbsp;Template.hello.events({<br/>&nbsp;&nbsp;&nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;data,&nbsp;if&nbsp;any,&nbsp;is&nbsp;available&nbsp;in&nbsp;'this'<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(typeof&nbsp;console&nbsp;!==&nbsp;'undefined')<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlighted">log(&quot;You&nbsp;pressed&nbsp;the&nbsp;button&nbsp;on&nbsp;the&nbsp;client&nbsp;side!&quot;);</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;});<br/>}<br/><br/>if&nbsp;(Meteor.isServer)&nbsp;{<br/>&nbsp;&nbsp;Meteor.startup(function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;code&nbsp;to&nbsp;run&nbsp;on&nbsp;server&nbsp;at&nbsp;startup<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlighted">log(&quot;I'm&nbsp;on&nbsp;the&nbsp;server!&quot;);</span><br/>&nbsp;&nbsp;});<br/>}
+          </div>
         </div>
       </div>
 
@@ -209,8 +236,8 @@
         On the server, (in the terminal), you should see something like:
       </p>
 
-      <div class="panel">
-        <div class="code">
+      <div class="panel panel-default">
+        <div class="code panel-body">
           I20140208-22:09:44.411(-5)? I'm on the server!
         </div>
       </div>
@@ -223,14 +250,18 @@
 
       </p>
 
+      <br>
+
       <div class="row">
-        <div class="small-6 columns">
-          <a href="why-meteor" class="button button-rounded centered"> <&nbsp;&nbsp; Why Meteor </a>
+        <div class="col-sm-6">
+          <a href="why-meteor" class="btn btn-primary centered"> <&nbsp;&nbsp; Why Meteor </a>
         </div>
-        <div class="small-6 columns" style="text-align: right;">
-          <a href="first-template" class="button button-rounded centered"> Your First Template &nbsp;&nbsp;> </a>
+        <div class="col-sm-6" style="text-align: right;">
+          <a href="first-template" class="btn btn-primary centered" disabled> Your First Template &nbsp;&nbsp;> </a>
         </div>
       </div>
+
+      <br>
 
     </div>
   </div>

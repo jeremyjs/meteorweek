@@ -1,12 +1,8 @@
-/************************************
- * CSS code from Bootply.com editor *
- ************************************/
-
 html,body {
   height:100%;
 }
 
-h1 {
+h1.lander {
   color: #fff;
   margin: 0;
 }

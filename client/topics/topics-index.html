@@ -1,14 +1,16 @@
 <template name="topicsIndex">
   <div class="row">
     <div class="large-12 columns">
-      <h1> Star Map </h1>
+      <h2> Star Map </h2>
     </div>
   </div>
 
   <div class="row">
     <div class="large-12 columns">
-      <div class="panel">
-        {{> topicsIndexInner}} <!-- because of view on signup page -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          {{> topicsIndexInner}} <!-- because of view on signup page -->
+        </div>
       </div>
     </div>
   </div>
@@ -17,22 +19,51 @@
 <template name="topicsIndexInner">
   <div class="sans">
     <h3>Beginning Tutorials</h3>
+
     <ul>
       <li><a href="/topics/why-meteor">         Why Meteor?           </a></li>
       <li><a href="/topics/getting-started">    Getting Started       </a></li>
-      <li><a href="/topics/first-template">     Creating a Template   </a></li>
+      <li class="inactive"><a href="">     Creating a Template   </a></li>
+      <li class="inactive"><a href="">     Routing Basics        </a></li>
+      <li class="inactive"><a href="">  Intro to Collections  </a></li>
+      <li class="inactive"><a href="">      Publish and Subscribe </a></li>
+      <li class="inactive"><a href="">        The Documentation     </a></li>
+      <li class="inactive"><a href="">         Atmosphere            </a></li>
+    </ul>
+    <h3>Intermediate Tutorials</h3>
+    <ul class="inactive">
+      <li><a href="">           Heroku Deployment       </a></li>
+      <li><a href="">    Mobile Meteor Apps      </a></li>
+      <li><a href="">         Accounts                </a></li>
+      <li><a href=""> Learn You a JavaScript  </a></li>
+    </ul>
+    <h3>Advanced Tutorials</h3>
+    <ul class="inactive">
+      <li><a href=""> Advanced Mongo          </a></li>
+      <li><a href=""> Node.js Fibers          </a></li>
+      <li><a href=""> Custom Packages         </a></li>
+      <li><a href=""> API's                   </a></li>
+      <li><a href=""> Contributing to Meteor  </a></li>
+    </ul>
+
+    <!--
+    <ul>
+      <li><a href="/topics/why-meteor">         Why Meteor?           </a></li>
+      <li><a href="/topics/getting-started">    Getting Started       </a></li>
   {{#if user}}
+      <li><a href="/topics/first-template">     Creating a Template   </a></li>
       <li><a href="/topics/routing-basics">     Routing Basics        </a></li>
       <li><a href="/topics/intro-collections">  Intro to Collections  </a></li>
       <li><a href="/topics/pub-sub-intro">      Publish and Subscribe </a></li>
       <li><a href="/topics/meteor-docs">        The Documentation     </a></li>
       <li><a href="/topics/atmosphere">         Atmosphere            </a></li>
   {{else}}
-      <li class="inactive"><a href="/topics/routing-basics">     Routing Basics        </a></li>
-      <li class="inactive"><a href="/topics/intro-collections">  Intro to Collections  </a></li>
-      <li class="inactive"><a href="/topics/pub-sub-intro">      Publish and Subscribe </a></li>
-      <li class="inactive"><a href="/topics/meteor-docs">        The Documentation     </a></li>
-      <li class="inactive"><a href="/topics/atmosphere">         Atmosphere            </a></li>
+      <li class="inactive"><a href="/topics/first-template" disabled>     Creating a Template   </a></li>
+      <li class="inactive"><a href="/topics/routing-basics" disabled>     Routing Basics        </a></li>
+      <li class="inactive"><a href="/topics/intro-collections" disabled>  Intro to Collections  </a></li>
+      <li class="inactive"><a href="/topics/pub-sub-intro" disabled>      Publish and Subscribe </a></li>
+      <li class="inactive"><a href="/topics/meteor-docs" disabled>        The Documentation     </a></li>
+      <li class="inactive"><a href="/topics/atmosphere" disabled>         Atmosphere            </a></li>
   {{/if}}
     </ul>
     <h3>Intermediate Tutorials</h3>
@@ -53,6 +84,6 @@
       <li><a href="/signup"> Custom Packages         </a></li>
       <li><a href="/signup"> API's                   </a></li>
       <li><a href="/signup"> Contributing to Meteor  </a></li>
-    </ul>
+    </ul> -->
   </div>
 </template>
