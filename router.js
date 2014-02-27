@@ -5,7 +5,8 @@ Router.configure({
 Router.map(function () {
   this.route('home', {
     path: '/',
-    template: 'main',
+    template: 'lander',
+    layoutTemplate: '',
     after: function() {
       $('.content-inner').scrollTop(0);
       $(window).scrollTop(0);
@@ -38,6 +39,22 @@ Router.map(function () {
   this.route('firstTemplate', {
     path: '/topics/first-template',
     template: 'firstTemplate',
+    after: function() {
+      $('.content-inner').scrollTop(0);
+      $(window).scrollTop(0);
+    }
+  });
+  this.route('routingBasics', {
+    path: '/topics/routing-basics',
+    template: 'routingBasics',
+    after: function() {
+      $('.content-inner').scrollTop(0);
+      $(window).scrollTop(0);
+    }
+  });
+  this.route('introCollections', {
+    path: '/topics/intro-collections',
+    template: 'introCollections',
     after: function() {
       $('.content-inner').scrollTop(0);
       $(window).scrollTop(0);

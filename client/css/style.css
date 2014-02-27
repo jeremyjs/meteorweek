@@ -1,4 +1,38 @@
 /* CSS declarations go here */
+
+/* NAVBAR */
+.navbar-brand {
+  padding: 0;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+.navbar-inverse .navbar-brand {
+  color: #fff;
+}
+.navbar-inverse .navbar-brand:hover {
+  color: #fff;
+  text-shadow: 0 0 0.2em #fff
+}
+.navbar > .container-fluid .navbar-brand {
+  margin-left: 15px;
+}
+.navbar .alert {
+  color: #f00;
+}
+
+/* LANDER */
+form.lander-form {
+  margin-top: 0;
+}
+
+.lead {
+  color: #989898;
+}
+h1 {
+  font-family: Arial,sans-serif;
+  font-size: 80px;
+  color:#fff;
+}
 p {
   font-family: sans-serif;
   font-size: 18px;
@@ -86,6 +120,7 @@ a.button {
   padding-bottom: .65rem;
   padding-left: 1.2rem;
   padding-right: 1.2rem;
+  margin: 0;
 }
 .serif, .serif * {
   font-family: sans-serif;

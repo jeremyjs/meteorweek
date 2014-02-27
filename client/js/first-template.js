@@ -38,4 +38,9 @@ if(Meteor.isClient) {
       "color" : "Red"
     }];
   }
+  Template.firstTemplate.events({
+    'click input' : function(){
+      alert("You clicked the button!");
+    }
+  });
 }

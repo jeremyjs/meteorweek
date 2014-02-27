@@ -26,7 +26,7 @@
       </div>
 
       <p>
-        We can use handlebars helpers like <span class="code">&#123;{name}}</span> which will call the javascript function that is bound to our template with <span class="code">Template.myTemplate.name</span>
+        We can create our own handlebars helpers like <span class="code">&#123;{name}}</span> which will call the javascript function that is bound to our template with <span class="code">Template.myTemplate.name</span>
       </p>
 
       <div class="code panel">
@@ -139,24 +139,44 @@
         Finally, let's learn about events!
       </p>
 
+      <p>
+        We can create our own events by defining our template's event map using <span class="code">Template.myTemplate.events()</span>
+      </p>
+
       <div class="code panel">
         <h5 class="title">main.html</h5>
         <div class="code">
-          &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Template&nbsp;events&nbsp;coming&nbsp;soon!&lt;/h1&gt;<br/>&lt;/template&gt;
+          &lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;Template!&lt;/h1&gt;<br/>&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&nbsp;to&nbsp;alert&quot;&nbsp;/&gt;
+        </div>
+      </div>
+
+      <div class="code panel">
+        <h5 class="title">main.js</h5>
+        <div class="code">
+          if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.events({<br/>&nbsp;&nbsp;&nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(&quot;You&nbsp;clicked&nbsp;the&nbsp;button!&quot;);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;});<br/>}
         </div>
       </div>
 
       <div class="panel">
         <h5 class="title">localhost:3000</h5>
-        <h1>Template events coming soon!</h1>
+        <h1>This is a Template!</h1>
+        <input type="button" value="Click to alert" />
       </div>
 
+      <p>
+        What this means is that whenever someone clicks on any input element in <span class="code">myTemplate</span>, this function will be called and will alert the user. You can see code examples for all kinds of events <a href="/references/events">here</a>.
+      </p>
+
+      <p>
+        Now you know the basics of templating. Wasn't that pretty easy? In the next lesson, we'll learn more about the power of collections.
+      </p>
+
       <div class="row">
-        <div class="large-6 columns">
+        <div class="small-6 columns">
           <a href="getting-started" class="button button-rounded centered"> &lt;&nbsp;&nbsp; Getting Started </a>
         </div>
-        <div class="large-6 columns" style="text-align: right;">
-          <a href="first-template" class="button button-rounded centered disabled"> Intro to Collections &nbsp;&nbsp;> </a>
+        <div class="small-6 columns" style="text-align: right;">
+          <a href="routing-basics" class="button button-rounded centered"> Routing Basics &nbsp;&nbsp;> </a>
         </div>
       </div>
 

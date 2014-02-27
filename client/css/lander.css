@@ -1,0 +1,33 @@
+/************************************
+ * CSS code from Bootply.com editor *
+ ************************************/
+
+html,body {
+  height:100%;
+}
+
+h1 {
+  color: #fff;
+  margin: 0;
+}
+
+/* Custom container */
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 80%;
+  background: url('img/meteor-shower.jpg') no-repeat fixed center;
+  /*color:#eee;*/
+  overflow:hidden;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/meteor-shower.jpg");
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/meteor-shower.jpg");
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/meteor-shower.jpg");
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/meteor-shower.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.1))), url("img/meteor-shower.jpg");
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/meteor-shower.jpg");
+
+}
+
+.v-center {
+  margin-top: 7%;
+}

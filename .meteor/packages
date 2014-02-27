@@ -8,7 +8,9 @@ autopublish
 insecure
 preserve-inputs
 iron-router
-foundation-5
-bootstrap3-sass
 jquery
-showdown
+accounts-ui
+accounts-base
+accounts-password
+accounts-ui-unstyled
+bootstrap-3
