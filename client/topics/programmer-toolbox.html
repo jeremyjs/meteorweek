@@ -1,0 +1,16 @@
+<template name="programmerToolbox">
+  <h2> The Programmer's Toolbox </h2>
+
+  <p>In this lesson, we're going to learn all about the tools you can use to make web development even easier. Whenever you type a url into the box at the top of your browser, the website you are trying to access will usually "route" you to some page. <strong>MeteorWeek</strong>, for instance, routes you to the lesson based on the part of the url in the brackets: <span class="code">https://week.meteor.com/topics/&lt;current-lesson></span> In <strong>Meteor</strong>, there is a neat third-party package called <strong>Iron Router</strong> that can handle all of the routing for us. You can give it a "layout" template, which usually consists of the navbar at the top of the page and the footer at the bottom of the page. The layout template can then be reused for some or all of our routes. <strong>Iron Router</strong> can also do other cool depending on the data we give it. </p>
+
+  <p>Let's start off by downloading <strong>Iron Router</strong>. Since it is a third-party package, we can't just use <span class="code">meteor add iron-router</span>. Instead, we can download the source code off of Github, a website for sharing code and keeping track of file changes. If you don't have a Github account, I recommend you make one and learn how to use it's magical abilities. Github is based on the unix version control system called <strong>git</strong>. CodeSchool has a great tutorial on using git here: <a href="http://try.github.io/levels/1/challenges/1">Try Git</a>. You can find a basic Github tutorial here: <a href="http://goo.gl/yBtgX9">Github for Beginners</a>. The Github website also has a basic <a href="">Getting Started guide</a>, but you will need to be familiar with <strong>git</strong> before you jump into it.</p>
+
+  <div class="code panel">
+    Users = new Meteor.Collection(&quot;users&quot;);
+  </div>
+
+  <p>
+    We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
+  </p>
+
+</template>

@@ -1,28 +1,18 @@
 <template name="introCollections">
-  <div class="row">
-    <div class="large-8 large-offset-2 columns">
-      <h1> Intro to Collections</h1>
-      <hr/>
-      <p>In this lesson, we're going to learn all about Meteor collections. We'll start with an example. Let's say you want to let users log in to your website or web application. After you take their sign up information, it goes into a database on the server. That way you can access it later, like the next time they sign in. The database used by Meteor is called MongoDB, which you can read more about <a href="http://www.mongodb.org/">here</a>. In particular, Meteor uses special Javascript objects called "Collections" that feature reactivity, meaning they can change the content of the html templates in real time whenever the data is changed. Here is an example of a collection:</p>
+  <h2> Intro to Collections</h2>
+  <p>In this lesson, we're going to learn all about Meteor collections. We'll start with an example. Let's say you want to let users log in to your website or web application. After you take their sign up information, it goes into a database on the server. That way you can access it later, for instance, the next time they sign in, or to construct their profile page. The database used by Meteor is called MongoDB, which you can read more about <a href="http://www.mongodb.org/">here</a>. In particular, Meteor uses special Javascript objects called "Collections" that feature reactivity, meaning they can change the content of the html templates in real time whenever the data is changed. Here is an example of a collection:</p>
 
-      <div class="code panel">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h5 class="title">collections.js</h5>
+      <div class="code">
         Users = new Meteor.Collection(&quot;users&quot;);
       </div>
-
-      <p>
-        We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
-      </p>
-
-
-      <div class="row">
-        <div class="small-6 columns">
-          <a href="routing-basics" class="button button-rounded centered"> &lt;&nbsp;&nbsp; Routing Basics </a>
-        </div>
-        <div class="small-6 columns" style="text-align: right;">
-          <a href="" class="button button-rounded centered disabled">  &nbsp;&nbsp;> </a>
-        </div>
-      </div>
-
     </div>
   </div>
+
+  <p>
+    We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. However, if you have many collections and you want to initialize them with some seed data, you should have a separate file for each collection. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
+  </p>
+
 </template>

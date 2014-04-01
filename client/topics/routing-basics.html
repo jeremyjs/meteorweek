@@ -1,27 +1,15 @@
 <template name="routingBasics">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
-      <h2> Routing Basics </h2>
-      <p>In this lesson, we're going to learn all about Meteor collections. We'll start with an example. Let's say you want to let users log in to your website or web application. After you take their sign up information, it goes into a database on the server. That way you can access it later, like the next time they sign in. The database used by Meteor is called MongoDB, which you can read more about <a href="http://www.mongodb.org/">here</a>. In particular, Meteor uses special Javascript objects called "Collections" that feature reactivity, meaning they can change the content of the html templates in real time whenever the data is changed. Here is an example of a collection:</p>
+  <h2> Routing Basics </h2>
+  <p>In this lesson, we're going to learn all about Routing. Whenever you type a url into the box at the top of your browser, the website you are trying to access will usually "route" you to some page. <strong>MeteorWeek</strong>, for instance, routes you to the lesson based on the part of the url in the brackets: <span class="code">https://week.meteor.com/topics/&lt;current-lesson></span> In <strong>Meteor</strong>, there is a neat third-party package called <strong>Iron Router</strong> that can handle all of the routing for us. You can give it a "layout" template, which usually consists of the navbar at the top of the page and the footer at the bottom of the page. The layout template can then be reused for some or all of our routes. <strong>Iron Router</strong> can also do other cool depending on the data we give it. </p>
 
-      <div class="code panel">
-        Users = new Meteor.Collection(&quot;users&quot;);
-      </div>
+  <p>Let's start off by downloading <strong>Iron Router</strong>. Since it is a third-party package, we can just use meteorite to download it with:</p>
 
-      <p>
-        We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
-      </p>
-
-
-      <div class="row">
-        <div class="small-6 columns">
-          <a href="routing-basics" class="button button-rounded centered"> &lt;&nbsp;&nbsp; Routing Basics </a>
-        </div>
-        <div class="small-6 columns" style="text-align: right;">
-          <a href="" class="button button-rounded centered disabled">  &nbsp;&nbsp;> </a>
-        </div>
-      </div>
-
-    </div>
+  <div class="code panel">
+    mrt add iron-router
   </div>
+
+  <p>
+    We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
+  </p>
+
 </template>

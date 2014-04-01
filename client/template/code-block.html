@@ -1,0 +1,12 @@
+<template name="codeBlock">
+	<div class="panel panel-default">
+    <div class="panel-body">
+    	{{#if title}}
+      <h5 class="title">{{{title}}}</h5>
+      {{/if}}
+      <div class="code">
+      	{{content}}
+      </div>
+    </div>
+  </div>
+</template>
