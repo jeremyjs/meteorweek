@@ -5,11 +5,10 @@
 
 standard-app-packages
 insecure
-preserve-inputs
 iron-router
-jquery
 accounts-ui
 accounts-base
 accounts-password
 accounts-ui-unstyled
 bootstrap-3
+marked

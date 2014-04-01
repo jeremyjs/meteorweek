@@ -5,6 +5,7 @@
   padding: 0;
   margin-top: 15px;
   margin-left: 15px;
+  height: 20px;
 }
 .navbar-inverse .navbar-brand {
   color: #fff;
@@ -23,6 +24,11 @@
 /* LANDER */
 form.lander-form {
   margin-top: 0;
+}
+h2.lander {
+  color: white;
+  padding-top: 30px;
+  font-size: 46px;
 }
 
 /* PANELS */
@@ -43,6 +49,9 @@ ul.centered > li {
   display: inline-block;
   float: none;
   margin-left: 1%;
+}
+.container {
+  padding: 0 30px;
 }
 
 /* TYPOGRAPHY */
