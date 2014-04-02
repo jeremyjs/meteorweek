@@ -2,11 +2,6 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h2> Star Map </h2>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
           {{> topicsIndexInner}} <!-- because of view on signup page -->
@@ -21,14 +16,9 @@
     <h3>Beginning Tutorials</h3>
 
     <ul>
-      <li><a href="/topics/why-meteor">         Why Meteor?           </a></li>
-      <li><a href="/topics/getting-started">    Getting Started       </a></li>
-      <li><a href="/topics/first-template">     Creating a Template   </a></li>
-      <li class="inactive"><a href="">     Routing Basics        </a></li>
-      <li class="inactive"><a href="">  Intro to Collections  </a></li>
-      <li class="inactive"><a href="">      Publish and Subscribe </a></li>
-      <li class="inactive"><a href="">        The Documentation     </a></li>
-      <li class="inactive"><a href="">         Atmosphere            </a></li>
+      {{#each lessons}}
+      <li><a href="{{pathFor this.name}}"> {{this.title}} </a></li>
+      {{/each}}
     </ul>
     <h3>Intermediate Tutorials</h3>
     <ul class="inactive">
