@@ -15,4 +15,33 @@
     We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. However, if you have many collections and you want to initialize them with some seed data, you should have a separate file for each collection. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
   </p>
 
+  <p>
+    Let's see how to add a user to our collection.
+  </p>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h5 class="title">collections.js</h5>
+      <div class="code">
+        Users = new Meteor.Collection(&quot;users&quot;);<br>
+        <br>
+        user1 = {
+        &nbsp;&nbsp;name: "Donald Knuth",
+        &nbsp;&nbsp;username: "dknuth",
+        &nbsp;&nbsp;email: "dknuth@meteorweek.com",
+        &nbsp;&nbsp;password: "dEfj4jK8",
+        &nbsp;&nbsp;age: 76
+        }
+        Users.insert(user1);
+        Users.insert({
+        &nbsp;&nbsp;name: "Donald Duck",
+        &nbsp;&nbsp;username: "dduck",
+        &nbsp;&nbsp;email: "dduck@meteorweek.com",
+        &nbsp;&nbsp;password: "uw8I6ovB",
+        &nbsp;&nbsp;age: 76
+        });
+      </div>
+    </div>
+  </div>
+
 </template>
