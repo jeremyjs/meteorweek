@@ -1,16 +1,18 @@
 <template name="firstTemplate">
-  <h2> Your First Template</h2>
+  <h2>Template Basics</h2>
 
   <p>In Meteor, templates are declared like this:</p>
 
   <div class="panel panel-default">
     <div class="code panel-body">
-      &lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template!&lt;/h1&gt;<br/>&lt;/template&gt;
+      &lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>
+      &nbsp;&nbsp;&lt;h1&gt;Look at me, I'm a template!&lt;/h1&gt;<br/>
+      &lt;/template&gt;
     </div>
   </div>
 
   <p>
-    We can put our templates in any .html file and they will be available to us by using
+    We can put our templates in any .html file and they will be available to us by using a Spacebars helper
     <br><span class="code">&#123;{> myTemplate}}</span>
   </p>
 
@@ -18,7 +20,13 @@
     <div class="panel-body">
       <h5 class="title">main.html</h5>
       <div class="code">
-        &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&lt;/template&gt;
+        &lt;body&gt;<br/>
+        &nbsp;&nbsp;&#123;{> myTemplate}}<br/>
+        &lt;/body&gt;<br/>
+        <br/>
+        &lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>
+        &nbsp;&nbsp;&lt;h1&gt;Look at me, I'm a template!&lt;/h1&gt;<br/>
+        &lt;/template&gt;
       </div>
     </div>
   </div>
@@ -26,7 +34,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <h5 class="title">localhost:3000</h5>
-      <h1>This is a template</h1>
+      <h1>Look at me, I'm a template!</h1>
     </div>
   </div>
 
@@ -38,7 +46,14 @@
     <div class="panel-body">
       <h5 class="title">main.html</h5>
       <div class="code">
-        &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&nbsp;&nbsp;&lt;p&gt;My&nbsp;name&nbsp;is&nbsp;&#123;{name}}!&lt;/p&gt;<br/>&lt;/template&gt;
+        &lt;body&gt;<br/>
+        &nbsp;&nbsp;&#123;{> myTemplate}}<br/>
+        &lt;/body&gt;<br/>
+        <br/>
+        &lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>
+        &nbsp;&nbsp;&lt;h1&gt;Look at me, I'm a template!&lt;/h1&gt;<br/>
+        &nbsp;&nbsp;&lt;p&gt;My&nbsp;name&nbsp;is&nbsp;&#123;{name}}!&lt;/p&gt;<br/>
+        &lt;/template&gt;
       </div>
     </div>
   </div>
@@ -47,7 +62,11 @@
     <div class="panel-body">
       <h5 class="title">main.js</h5>
       <div class="code">
-        if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.name&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Donald&nbsp;Knuth&quot;;<br/>&nbsp;&nbsp;}<br/>}
+        if(Meteor.isClient)&nbsp;{<br/>
+        &nbsp;&nbsp;Template.myTemplate.name&nbsp;=&nbsp;function()&nbsp;{<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Jonathan&nbsp;Ive&quot;;<br/>
+        &nbsp;&nbsp;}<br/>
+        }
       </div>
     </div>
   </div>
@@ -55,20 +74,28 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <h5 class="title">localhost:3000</h5>
-      <h1>This is a template</h1>
+      <h1>Look at me, I'm a template!</h1>
       <p>My name is {{onamae}}!</p>
     </div>
   </div>
 
   <p>
-    We can also use <span class="code">&#123;{#each}}</span> to iterate over a list of things and do something for each.
+    We can also use <span class="code">&#123;{#each}}</span> to iterate over a list of things and render some html for each object in the list.
   </p>
 
   <div class="panel panel-default">
     <div class="panel-body">
       <h5 class="title">main.html</h5>
       <div class="code">
-        &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{#each&nbsp;people}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;My&nbsp;name&nbsp;is&nbsp;&#123;{this}}!&lt;/p&gt;<br/>&nbsp;&nbsp;&#123;{/each}}<br/>&lt;/template&gt;
+        &lt;body&gt;<br/>
+        &nbsp;&nbsp;&#123;{> myTemplate}}<br/>
+        &lt;/body&gt;<br/>
+        <br/>
+        &lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>
+        &nbsp;&nbsp;&#123;{#each&nbsp;people}}<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;I'm &#123;{this.name}}, and my favorite color is &#123;{this.color}}!&lt;/p&gt;<br/>
+        &nbsp;&nbsp;&#123;{/each}}<br/>
+        &lt;/template&gt;
       </div>
     </div>
   </div>
@@ -77,7 +104,22 @@
     <div class="panel-body">
       <h5 class="title">main.js</h5>
       <div class="code">
-        if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&quot;Donald&nbsp;Knuth&quot;,&nbsp;&quot;Donald&nbsp;Trump&quot;,&nbsp;&quot;Donald&nbsp;Duck&quot;];<br/>&nbsp;&nbsp;}<br/>}
+        if(Meteor.isClient) {<br/>
+        &nbsp;&nbsp;Template.myTemplate.people = function() {<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;return [ {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Jonathan Ive",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: "red"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Bill Gates",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: "blue"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Larry Page",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: "green"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;];<br>
+        }
       </div>
     </div>
   </div>
@@ -85,58 +127,39 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <h5 class="title">localhost:3000</h5>
-      <h1>This is a template</h1>
-    {{#each names}}
-      <p>My name is {{this}}.</p>
-    {{/each}}
+      {{#each people}}
+        <p>I'm {{this.name}}, and my favorite color is {{this.color}}!</p>
+      {{/each}}
     </div>
   </div>
 
   <p>
-    <span class="code">this</span> is a special key word that just means, "whatever is returned by the helper". Here, the helper is an <span class="code">&#123;{#each}}</span> helper, so it returns a list, which is represented in Javascript by the square brackets: <span class="code">[]</span>. For our helper, <span class="code">this</span> means "each item in our list".
+    The value of <span class="code">this</span> depends on the context. Here, when we use an <span class="code">&#123;{#each}}</span> helper, the context is each item in our list, so if we pass a list of javascript objects, we can use <span class="code">this</span> to access their properties.
   </p>
 
   <p>
-    When we learn about collections in the next tutorial, we'll learn how helpers can iterate over objects too. Here's a sneak peek:
-  </p>
-
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h5 class="title">main.html</h5>
-      <div class="code">
-        &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{#each&nbsp;people}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;{this.name}}'s&nbsp;favorite&nbsp;color&nbsp;is&nbsp;&#123;{this.color}}!<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br/>&nbsp;&nbsp;&#123;{/each}}<br/>&lt;/template&gt;
-      </div>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h5 class="title">main.js</h5>
-      <div class="code">
-        if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Knuth&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Blue&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Trump&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Green&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Duck&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Red&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}];<br/>&nbsp;&nbsp;}<br/>}
-      </div>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h5 class="title">localhost:3000</h5>
-      <h1>This is a template</h1>
-    {{#each people}}
-      <p>{{this.name}}'s favorite color is {{this.color}}!</p>
-    {{/each}}
-    </div>
-  </div>
-
-  <p>
-    We can also use a little bit of conditional logic in our templates. What if we only wanted to show the favorite color of Donald Trump and "Yellow" otherwise?
+    We can also use a little bit of conditional logic in our templates. What if we only wanted to show the favorite color of Bill Gates and "yellow" otherwise?
   </p>
 
   <div class="panel panel-default">
     <div class="panel-body">
       <h5 class="title">main.html</h5>
       <div class="code">
-        &lt;body&gt;<br/>&nbsp;&nbsp;&#123;&#123;&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;&#123;#each&nbsp;people}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;#if&nbsp;isTrump}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;this.name}}'s&nbsp;favorite&nbsp;color&nbsp;is&nbsp;&#123;&#123;this.color}}!<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;else}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;this.name}}'s&nbsp;favorite&nbsp;color&nbsp;is&nbsp;Yellow!<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;/if}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br/>&nbsp;&nbsp;&#123;&#123;/each}}<br/>&lt;/template&gt;
+        &lt;body&gt;<br/>
+        &nbsp;&nbsp;&#123;&#123;&gt;&nbsp;myTemplate}}<br/>
+        &lt;/body&gt;<br/>
+        <br/>
+        &lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>
+        &nbsp;&nbsp;&#123;&#123;#each&nbsp;people}}<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;{#if isBill}}<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;this.name}}'s&nbsp;favorite&nbsp;color&nbsp;is&nbsp;&#123;&#123;this.color}}!<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;else}}<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;this.name}}'s&nbsp;favorite&nbsp;color&nbsp;is&nbsp;Yellow!<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;/if}}<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br/>
+        &nbsp;&nbsp;&#123;&#123;/each}}<br/>
+        &lt;/template&gt;
       </div>
     </div>
   </div>
