@@ -18,7 +18,11 @@
   </div>
 
   <p>
-   If you don't have curl installed, you can get it on most linux distributions with<span class="code-inline"> sudo apt-get install curl</span>. It should be included by default on Mac.
+    If you don't have curl installed, you can get it on most linux distributions with<span class="code-inline"> sudo apt-get install curl</span>. It should be included by default on Mac.
+  </p>
+
+  <p>
+    Meteor is not currently supported on Windows, but you can try Nitrous.io or this website if you'd like. Note that your results may vary.
   </p>
 
   <p>
@@ -38,7 +42,7 @@
   </div>
 
   <p>
-    In your new app, you'll find three files: <span class="code-inline">myFirstApp.html</span>, <span class="code-inline">myFirstApp.css</span>, and <span class="code-inline">myFirstApp.js</span>. Let's go ahead and run the local server. All you have to do is:
+    In your new app, you'll find three files: <span class="code-inline">myFirstApp.html</span>, <span class="code-inline">myFirstApp.css</span>, and <span class="code-inline">myFirstApp.js</span>. Let's go ahead and run the local server. All you have to do is type:
   </p>
 
   <div class="panel panel-default">
@@ -48,6 +52,7 @@
       <br>
       => Started proxy. <br>
       => Started MongoDB. <br>
+      => Started application. <br>
       <br>
       => App running at: http://localhost:3000/ <br>
     </div>
@@ -91,7 +96,7 @@
   </p>
 
   <p>
-    Next, you have the <span class="code-inline">&lt;body&gt;</span> tag. Inside is a template render statement in handlebars.
+    Next, you have the <span class="code-inline">&lt;body&gt;</span> tag. Inside is a template render statement in Spacebars, the templating language used by Meteor, which is based on Handlebars. The <span class="code-inline">&#123;{> hello}}</span> statement tells Meteor to render the <span class="code-inline">hello</span> template inside the <span class="code-inline">body</span> tag.
   </p>
 
   <div class="panel panel-default">
@@ -118,6 +123,7 @@
 
   <div class="panel panel-default">
     <div class="panel-body">
+      <h5 class="title">localhost:3000</h5>
       <h1>Hello World!</h1>
       Welcome to myFirstApp.
       <input type="button" value="Click" />
@@ -136,6 +142,7 @@
   </div>
   <div class="panel panel-default">
     <div class="panel-body">
+      <h5 class="title">localhost:3000</h5>
       <h1>Greetings, World!</h1>
       Welcome to myFirstApp.
       <input type="button" value="Click" />
@@ -147,7 +154,7 @@
   </p>
 
   <p>
-    Next, we'll learn about handlebars helpers. The <span class="code-inline">&#123;{greeting}}</span> handlebars tag activates the handlebars helper in <span class="code-inline">myFirstApp.js</span>, which returns the greeting, "Welcome to myFirstApp."
+    Next, we'll learn about Spacebars helpers. The <span class="code-inline">&#123;{greeting}}</span> Spacebars tag activates the helper in <span class="code-inline">myFirstApp.js</span>, which returns the greeting, "Welcome to myFirstApp." The helper variable has three parts. <span class="code-inline">Template</span> returns the javascript object containing all of our Meteor templates. <span class="code-inline">.hello</span> simply accesses the <span class="code-inline">hello</span> template from the template object. Finally, <span class="code-inline">.greeting</span> accesses the <span class="code-inline">greeting</span> helper for the <span class="code-inline">hello</span> template. Here, we set the value of the <span class="code-inline">greeting</span> helper to a function, which is evaluated, and the value of the return statement (a string) is rendered in the html view.
   </p>
 
   <div class="panel panel-default">
@@ -159,7 +166,7 @@
     </div>
   </div>
 
-  <p>Go ahead and change the greeting.</p>
+  <p>Let's go ahead and change the greeting.</p>
 
   <div class="panel panel-default">
     <div class="panel-body">
@@ -178,11 +185,11 @@
   </div>
 
   <p>
-    As you can see, hot code pushes work for the javascript code as well. Whatever is returned by the greeting function will be rendered directly in the html, including arrays and javascript objects. Later, we'll see how to render collections using handlebars helpers.
+    As you can see, hot code pushes work for the javascript code as well. Whatever is returned by the greeting function will be rendered directly in the html, including arrays and javascript objects. In a later lesson, we'll see how to render data from our database using helpers.
   </p>
 
   <p>
-    In addition to helpers, which are called inside the curlybraces, we can also set event handlers for certain actions the user might take, such as clicking on buttons. That's what the next part of <span class="code-inline">myFirstApp.js</span> does:
+    In addition to helpers, we can also set event handlers for certain actions the user might take, such as clicking on buttons. That's what the next part of <span class="code-inline">myFirstApp.js</span> does:
   </p>
 
   <div class="panel panel-default">
@@ -195,7 +202,7 @@
   </div>
 
   <p>
-    It's a pretty intuitive syntax, 'click input'. So whenever someone clicks on any input element in the hello template, this function will be called. All this function does is log a message to the browser console whenever the button is clicked. The developer tools, including the browser console can be opened in most browsers with f12 or in safari, ⌥⌘C (Ctrl-Alt-C when using safari in an OS other than Mac)
+    It's a pretty intuitive syntax, <span class="code-inline">'click input'</span>. Whenever someone clicks on any input element in the hello template, this function will be called. All this function does is log a message to the browser console whenever the button is clicked. The developer tools, including the browser console can be opened in most browsers with "f12" or in safari, Cmd-Opt-C or Ctrl-Alt-C when using safari in an OS other than Mac.
   </p>
 
   <p>
@@ -210,13 +217,15 @@
     <div class="panel-body">
       <h5 class="title">helpers.js</h5>
       <div class="code">
-        log&nbsp;=&nbsp;function(string)&nbsp;{<br/>&nbsp;&nbsp;console.log(string);<br/>}
+        log = function(string) {<br/>
+        &nbsp;&nbsp;console.log(string);<br/>
+        };
       </div>
     </div>
   </div>
 
   <p>
-    Now, we can call our function on both the client and the server in<span class="code-inline">myFirstApp.js</span>:
+    Notice that we didn't use the <span class="code-inline">var</span> keyword. In Meteor, declaring variables with the <span class="code-inline">var</span> keyword limits the use of that variable to that file. If we omit the <span class="code-inline">var</span> keyword, our new <span class="code-inline">log</span> function is available in <span class="code-inline">myFirstApp.js</span> and any other javascript file in our application. Now, we can call our function on both the client and the server in<span class="code-inline">myFirstApp.js</span>:
   </p>
 
   <div class="panel panel-default">
@@ -240,6 +249,10 @@
 
   <p>
     On the client, you should see "You pressed the button on the client side!" logged to the browser console whenever the button is clicked.
+  </p>
+
+  <p>
+    Congratulations, you just built your first Meteor application! Now you know enough to create static html pages quickly and easily with Meteor. In the next lesson, we'll learn all about templates and how you can use them to simplify and add power to your websites and applications.
   </p>
 
   <br>
