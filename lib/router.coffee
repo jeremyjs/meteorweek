@@ -65,6 +65,10 @@ Router.map( ->
     path: '/references/events'
     template: 'eventsReference'
   )
+  this.route('collectionsReference'
+    path: '/references/collections'
+    template: 'collectionsReference'
+  )
   this.route('signup'
     path: '/signup'
     template: 'signup'

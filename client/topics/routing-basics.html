@@ -1,15 +1,19 @@
 <template name="routingBasics">
   <h2> Routing Basics </h2>
-  <p>In this lesson, we're going to learn all about Routing. Whenever you type a url into the box at the top of your browser, the website you are trying to access will usually "route" you to some page. <strong>MeteorWeek</strong>, for instance, routes you to the lesson based on the part of the url in the brackets: <span class="code">https://week.meteor.com/topics/&lt;current-lesson></span> In <strong>Meteor</strong>, there is a neat third-party package called <strong>Iron Router</strong> that can handle all of the routing for us. You can give it a "layout" template, which usually consists of the navbar at the top of the page and the footer at the bottom of the page. The layout template can then be reused for some or all of our routes. <strong>Iron Router</strong> can also do other cool depending on the data we give it. </p>
+  <p>In this lesson, we're going to learn all about Routing. Whenever you type a url into the box at the top of your browser, the website you are trying to access will usually "route" you to some page. <strong>MeteorWeek</strong>, for instance, routes you to the lesson based on the part of the url in the brackets: <span class="code">https://week.meteor.com/topics/&lt;current-lesson></span> In <strong>Meteor</strong>, there is a neat third-party package called <strong>Iron Router</strong> that can handle all of the routing for us. You can give it a "layout" template, which usually consists of the navbar at the top of the page and the footer at the bottom of the page. The layout template can then be reused for some or all of our routes. <strong>Iron Router</strong> can also do other cool stuff depending on the data we give it. </p>
 
-  <p>Let's start off by downloading <strong>Iron Router</strong>. Since it is a third-party package, we can just use meteorite to download it with:</p>
+  <p>
+  	Let's start off by downloading <strong>Iron Router</strong>. First, you will need to download <a href="atmospherejs.com"><strong>Meteorite</strong></a>, the unofficial package manager for Meteor. You can do that using node package manager: <span class="code">npm install -g meteorite</span> If you don't have NPM, you can get it <a href="npmjs.org">here</a>. Now we can add <strong>Iron Router</strong> to our project with:
+  </p>
 
-  <div class="code panel">
-    mrt add iron-router
+  <div class="panel panel-default">
+    <div class="panel-body">
+    	mrt add iron-router
+    </div>
   </div>
 
   <p>
-    We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
+    Okay, let's take a look at our new router.
   </p>
 
 </template>

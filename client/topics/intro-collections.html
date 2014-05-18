@@ -14,7 +14,7 @@
   </div>
 
   <p>
-    We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us on the client and server. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. However, if you have many collections and you want to initialize them with some seed data, you should have a separate file for each collection. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
+    We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us on the client and server. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. However, if you have many collections and you want to initialize them with some seed data, you could have a separate file for each collection. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
   </p>
 
   <p>
@@ -119,12 +119,80 @@
   </div>
 
   <p>
+    We can also use a few advanced parameters of find to sort our results.
+  </p>
 
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h5 class="title">example.js</h5>
+      <div class="code">
+        if(Meteor.isClient)&nbsp;{<br/>
+        &nbsp;&nbsp;Template.example.findMessages = function() {<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;return Messages.find(<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ user: "jonyive", recipient: "tcook" },<br/>
+        <span class="highlighted">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ sort: {createdAt: -1}, limit: 1 }<br>
+        </span>
+        &nbsp;&nbsp;&nbsp;&nbsp;);<br>
+        &nbsp;&nbsp;}<br/>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h5 class="title">localhost:3000</h5>
+      <h4> Messages from Jony Ive to Tim Cook: </h4>
+      {{#each findMessages2}}
+        <br>
+        <p><strong>From:</strong> {{this.user}}</p>
+        <p><strong>To:</strong> {{this.recipient}}</p>
+        <p>{{this.text}}</p>
+      {{/each}}
+    </div>
+  </div>
+
+  <p>
+    Here, the sort parameter does what it sounds like. We are sorting by when the message was created, in descending order (reverse, because we used -1). We also limit the number of results to only one object. The result is that we will get the newest message from Jony to Tim. There are a few other methods that we can use with Collections.
   </p>
 
   <p>
-    We can use <span class="code">Collection.findOne(<em>id</em>)</span> to find just on
-    And finally, we can use <span class="code">Collection.remove(<em>id</em>)</span> to remove an item from our collection.
+    Every object in the database has a unique id that we can use to find that object in our collection using <span class="code">MyCollection.findOne(<em>id</em>)</span>. We'll see how that becomes useful in the next lesson when we learn about routing. We can access an object's id like so: <span class="code">object._id</span>. To remove an object from our database, we can use <span class="code">MyCollection.remove(<em>id</em>)</span>.
+  </p>
+
+  <p>
+    The last method we will learn about is update: <br>
+    <span class="code">MyCollection.update(<em>selector</em>, <em>modifier</em>)</span>.<br>
+    Here's a code example.
+  </p>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h5 class="title">update.js</h5>
+      <div class="code">
+        Messages.update(<br>
+        &nbsp;&nbsp;{ user: "jonyive" },<br>
+        &nbsp;&nbsp;{ user: "jony" }<br>
+        );<br>
+        Messages.update(<br>
+        &nbsp;&nbsp;{ recipient: "jonyive" },<br>
+        &nbsp;&nbsp;{ recipient: "jony" }<br>
+        );
+      </div>
+    </div>
+  </div>
+
+  <p>
+    Here we are finding all of the messages that have the user "jonyive" and changing the user to "jony". We then do the same thing with recipients. This might happen if the user changes their username.
+  </p>
+
+  <p>
+    One more note about collections. When you call <span class="code">MyCollection.find()</span>, instead of getting a plain old array of objects, <span class="code">find()</span> returns what's called a <em>cursor</em>. That allows the reactivity part of Meteor templates to work properly for the <span class="code">&#123;{#each}}</span> helper we saw before. If you want to get a plain old array, like for debugging, or to do some fancy data manipulation, you can use the <span class="code">fetch()</span> method like this: <span class="code">MyCollection.find().fetch()</span>
+  </p>
+
+  <p>
+    That's it for the basics of collections! To find out more examples of how to use Collections, check out the <a href="/references/collections">Collections cheat sheet</a>. In the next lesson, we'll learn all about creating many pages and linking them within our application using routing.
   </p>
 
 </template>
