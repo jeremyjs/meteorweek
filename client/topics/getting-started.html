@@ -1,12 +1,12 @@
 <template name="gettingStarted">
-  <h2> Welcome to <span class="brand-inline">Meteor Week</span></h2>
+  <h2> Welcome to <span class="brand-inline">Meteor Week</span>!</h2>
 
   <iframe width="100%" height="480" src="//www.youtube.com/embed/7ntsxxA2rOw" frameborder="0" allowfullscreen></iframe>
 
   <br><br>
 
   <p>
-    Let's install Meteor! Throughout this tutorial, shell commands and Meteor code are shown in a box like the one below.
+    Let's install Meteor! Throughout this tutorial, shell (terminal) commands and Meteor code are shown in a box like the one below.
   </p>
 
   <p>Type the following into your terminal to install Meteor:</p>
@@ -20,6 +20,8 @@
   <p>
    If you don't have curl installed, you can get it on most linux distributions with<span class="code-inline"> sudo apt-get install curl</span>. It should be included by default on Mac.
   </p>
+
+  <p> Unfortunately, Meteor is not currently supported on Windows, but you are welcome to try <a href="http://win.meteor.com/">this website</a> or <a href="http://nitrous.io">Nitrous.io</a> instead. Note that your results may vary.</p>
 
   <p>
     Okay, let's create our first application! Pick a location where you'd like to create the project. I suggest making a folder for all of your meteor projects. All you have to do to create a meteor app is use the meteor create command:
@@ -91,7 +93,7 @@
   </p>
 
   <p>
-    Next, you have the <span class="code-inline">&lt;body&gt;</span> tag. Inside is a template render statement in handlebars.
+    Next, you have the <span class="code-inline">&lt;body&gt;</span> tag. Inside the body tag is a template render statement that renders the hello template.
   </p>
 
   <div class="panel panel-default">
@@ -105,6 +107,10 @@
 
   <p>
     The last thing in <span class="code-inline">myFirstApp.html</span> is the hello template, which is rendered in the body.
+  </p>
+
+  <p>
+    Meteor comes with its own templating engine called Blaze which uses a custom Handlebars syntax called Spacebars. To find out more about Blaze and Spacebars, check out the <a href="http://docs.meteor.com/#livehtmltemplates">Official Meteor Documentation</a>. We'll cover the basics of templating in a later lesson.
   </p>
 
   <div class="panel panel-default">
@@ -124,7 +130,9 @@
     </div>
   </div>
 
-  <p>Here comes the cool part. Try changing the "Hello World!" heading tag to anything you want.</p>
+  <p>
+    Here comes the cool part. Try changing the "Hello World!" heading tag to anything you want.
+  </p>
 
   <div class="panel panel-default">
     <div class="panel-body">
@@ -147,7 +155,7 @@
   </p>
 
   <p>
-    Next, we'll learn about handlebars helpers. The <span class="code-inline">&#123;{greeting}}</span> handlebars tag activates the handlebars helper in <span class="code-inline">myFirstApp.js</span>, which returns the greeting, "Welcome to myFirstApp."
+    Next, we'll learn how to use spacebars helpers. The <span class="code-inline">&#123;{greeting}}</span> spacebars tag activates the helper in <span class="code-inline">myFirstApp.js</span>, which returns the greeting, "Welcome to myFirstApp."
   </p>
 
   <div class="panel panel-default">
@@ -158,6 +166,10 @@
       </div>
     </div>
   </div>
+
+  <p>
+    <span class="code-inline">Template.hello.greeting</span> has three parts: <span class="code-inline">Template</span> refers to the Meteor object holding all of the templates in our application. <span class="code-inline">.hello</span> then filters to retrieve the template named "hello". Finally, <span class="code-inline">.greeting</span> refers to the "greeting" helper of the "hello" template.
+  </p>
 
   <p>Go ahead and change the greeting.</p>
 
@@ -178,11 +190,11 @@
   </div>
 
   <p>
-    As you can see, hot code pushes work for the javascript code as well. Whatever is returned by the greeting function will be rendered directly in the html, including arrays and javascript objects. Later, we'll see how to render collections using handlebars helpers.
+    As you can see, hot code pushes work for the javascript code as well. Whatever is returned by the greeting function will be rendered directly in the html, including arrays and javascript objects.
   </p>
 
   <p>
-    In addition to helpers, which are called inside the curlybraces, we can also set event handlers for certain actions the user might take, such as clicking on buttons. That's what the next part of <span class="code-inline">myFirstApp.js</span> does:
+    In addition to helpers, we can also set event handlers for certain actions the user might take, such as clicking on buttons. That's what the next part of <span class="code-inline">myFirstApp.js</span> does:
   </p>
 
   <div class="panel panel-default">
@@ -195,7 +207,7 @@
   </div>
 
   <p>
-    It's a pretty intuitive syntax, 'click input'. So whenever someone clicks on any input element in the hello template, this function will be called. All this function does is log a message to the browser console whenever the button is clicked. The developer tools, including the browser console can be opened in most browsers with f12 or in safari, ⌥⌘C (Ctrl-Alt-C when using safari in an OS other than Mac)
+    It's a pretty intuitive syntax, <span class="code-inline">'click input'</span>. So whenever someone clicks on any input element in the hello template, this function will be called. All this function does is log a message to the browser console whenever the button is clicked. The developer tools, including the browser console can be opened in most browsers with f12 or in safari, ⌥-⌘-C (Cmd-Opt-C or Ctrl-Alt-C when using safari in an OS other than Mac).
   </p>
 
   <p>
@@ -216,7 +228,7 @@
   </div>
 
   <p>
-    Now, we can call our function on both the client and the server in<span class="code-inline">myFirstApp.js</span>:
+    Now, we can call our function on both the client and the server in <span class="code-inline">myFirstApp.js</span>:
   </p>
 
   <div class="panel panel-default">
@@ -240,6 +252,14 @@
 
   <p>
     On the client, you should see "You pressed the button on the client side!" logged to the browser console whenever the button is clicked.
+  </p>
+
+  <!-- file structure in meteor; copy meteor docs -->
+
+  <!-- provide a stylesheet -->
+
+  <p>
+    That's it for the first lesson. Stay tuned, tomorrow we're going to learn about the power of templating!
   </p>
 
   <br>

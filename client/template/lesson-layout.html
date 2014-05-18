@@ -1,0 +1,42 @@
+<template name="lessonLayout">
+  {{> nav}}
+
+  <div class="container white-bg">
+    <br><br>
+
+    <div class="row">
+
+      {{> yield}}
+
+      <div class="row hidden-xs">
+        <div class="col-sm-6">
+          {{#if pathFor prev}}
+          <a href="{{pathFor prev}}" class="btn btn-primary centered"> &#10229; {{prevTitle}} </a>
+          {{/if}}
+        </div>
+        <div class="col-sm-6" style="text-align: right;">
+          {{#if pathFor next}}
+          <a href="{{pathFor next}}" class="btn btn-primary centered"> {{nextTitle}} &#10230; </a>
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="row visible-xs">
+        <div class="col-xs-6">
+          <a href="{{pathFor prev}}" class="btn btn-primary centered"> &#10229; Prev </a>
+        </div>
+        <div class="col-xs-6" style="text-align: right;">
+          <a href="{{pathFor next}}" class="btn btn-primary centered"> Next &#10230; </a>
+        </div>
+      </div>
+
+      <br>
+
+    </div> <!-- row -->
+
+    <br>
+
+    {{> footer}}
+
+  </div> <!-- container -->
+</template>

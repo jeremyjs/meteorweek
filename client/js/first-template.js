@@ -1,24 +1,24 @@
 if(Meteor.isClient) {
   Template.firstTemplate.onamae = function() {
-    return "Donald Knuth";
+    return "Jonathan Ive";
   }
   Template.firstTemplate.names = function() {
-    return ["Donald Knuth", "Donald Trump", "Donald Duck"];
+    return ["Jonathan Ive", "Bill Gates", "Larry Page"];
   }
   Template.firstTemplate.isTrump = function() {
-    return this.name === "Donald Trump";
+    return this.name === "Bill Gates";
   }
   Template.firstTemplate.people = function() {
     return [{
-      "name" : "Donald Knuth",
+      "name" : "Jonathan Ive",
       "color" : "Blue"
     },
     {
-      "name" : "Donald Trump",
+      "name" : "Bill Gates",
       "color" : "Green"
     },
     {
-      "name" : "Donald Duck",
+      "name" : "Larry Page",
       "color" : "Red"
     }];
   }

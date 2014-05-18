@@ -22,13 +22,24 @@
 }
 
 /* LANDER */
+body {
+  background: url("/img/milky-way.jpg") no-repeat fixed center;
+}
 form.lander-form {
   margin-top: 0;
+}
+h1.lander {
+  font-family: Arial,sans-serif;
+  font-size: 80px;
+  color:#fff;
 }
 h2.lander {
   color: white;
   padding-top: 30px;
   font-size: 46px;
+}
+.btn-lander {
+  border-radius: 3px;
 }
 
 /* PANELS */
@@ -78,12 +89,19 @@ code, .code {
   /*padding-left: 4px;*/
 }
 
-/* OTHER */
-h1.lander {
-  font-family: Arial,sans-serif;
-  font-size: 80px;
-  color:#fff;
+/* CONTAINER */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
 }
+
+/* WHITE */
+.white-bg {
+  background-color: white;
+}
+
+/* OTHER */
 p {
   font-family: sans-serif;
   font-size: 18px;
@@ -125,9 +143,6 @@ p {
 }
 .button-rounded {
   border-radius: 7.5px;
-}
-form {
-  margin-top: 40px;
 }
 .brand-inline {
   font-weight: bold;

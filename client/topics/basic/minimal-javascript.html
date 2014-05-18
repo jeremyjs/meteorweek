@@ -1,0 +1,22 @@
+<template name="minimalJavascript">
+  <h2> Let's Learn JavaScript</h2>
+
+  <iframe width="100%" height="480" src="//www.youtube.com/embed/7ntsxxA2rOw" frameborder="0" allowfullscreen></iframe>
+
+  <br><br>
+
+  <p>
+    JavaScript is the programming language used by the web browser to execute programs that the user sees. Some web development frameworks use a different language on the server to handle routing, computation, and database access. In Meteor, we use JavaScript for both the front-end and the back-end. That's great news for you, because after this lesson, you'll be all set to jump right into using Meteor!
+  </p>
+
+  <p> &gt;Insert fun facts here&lt; </p>
+
+  <p>Let's take a look at a basic JavaScript file.</p>
+
+  <div class="panel panel-default">
+    <div class="code panel-body">
+    	<br/>var&nbsp;a;<br/>var&nbsp;b,&nbsp;c;<br/>var&nbsp;d&nbsp;=&nbsp;0;<br/>var&nbsp;e&nbsp;=&nbsp;42,&nbsp;f&nbsp;=&nbsp;10;<br/>g&nbsp;=&nbsp;&quot;I'm&nbsp;a&nbsp;global&nbsp;string!&quot;;<br/>a&nbsp;=&nbsp;25;<br/><br/>var&nbsp;addThings&nbsp;=&nbsp;function&nbsp;(argument1,&nbsp;argument2)&nbsp;{<br/>&nbsp;&nbsp;var&nbsp;temp&nbsp;=&nbsp;argument1&nbsp;+&nbsp;argument2;<br/>&nbsp;&nbsp;return&nbsp;temp;<br/>}<br/><br/>addThings(something);<br/><br/>applyFunction&nbsp;=&nbsp;function&nbsp;(func,&nbsp;arg1,&nbsp;arg2)&nbsp;{<br/>&nbsp;&nbsp;return&nbsp;func(arg1,&nbsp;arg2);<br/>}<br/><br/>c&nbsp;=&nbsp;applyFunction&nbsp;(addThings,&nbsp;10,&nbsp;a);&nbsp;//&nbsp;35<br/><br/>applyFunction(function(a,&nbsp;b){&nbsp;return&nbsp;a*b;&nbsp;},&nbsp;3,&nbsp;10)&nbsp;//&nbsp;30<br/><br/>booleanFunction&nbsp;=&nbsp;function&nbsp;(func1,&nbsp;func2)&nbsp;{<br/>&nbsp;&nbsp;if&nbsp;(c&nbsp;==&nbsp;35)&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;func1();<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;else&nbsp;if&nbsp;(a&nbsp;==&nbsp;25)&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;func2();<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;else&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;null;<br/>&nbsp;&nbsp;}<br/>}<br/><br/>a&nbsp;=&nbsp;[123,&nbsp;&quot;string&quot;,&nbsp;c];<br/>a[0];&nbsp;//&nbsp;123<br/>a[1];&nbsp;//&nbsp;&quot;string&quot;<br/>a[2];&nbsp;//&nbsp;35&nbsp;or&nbsp;whatever&nbsp;the&nbsp;value&nbsp;of&nbsp;c&nbsp;is<br/><br/>car&nbsp;=&nbsp;{<br/>&nbsp;&nbsp;topSpeed:&nbsp;120,<br/>&nbsp;&nbsp;make:&nbsp;&quot;Corvette&quot;,<br/>&nbsp;&nbsp;owners:&nbsp;[&quot;Dave&quot;,&nbsp;&quot;Betty&quot;]<br/>}<br/><br/>car.topSpeed;&nbsp;//&nbsp;120<br/>car.owners[0];&nbsp;//&nbsp;Dave
+    </div>
+  </div>
+
+</template>

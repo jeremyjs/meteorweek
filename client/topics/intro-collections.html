@@ -1,47 +1,130 @@
 <template name="introCollections">
   <h2> Intro to Collections</h2>
-  <p>In this lesson, we're going to learn all about Meteor collections. We'll start with an example. Let's say you want to let users log in to your website or web application. After you take their sign up information, it goes into a database on the server. That way you can access it later, for instance, the next time they sign in, or to construct their profile page. The database used by Meteor is called MongoDB, which you can read more about <a href="http://www.mongodb.org/">here</a>. In particular, Meteor uses special Javascript objects called "Collections" that feature reactivity, meaning they can change the content of the html templates in real time whenever the data is changed. Here is an example of a collection:</p>
+  <p>
+    In this lesson, we're going to learn all about Meteor collections. We'll start with an example. Let's say you want to store chat messages for your website or web application. When someone creates a message, it should go into a database on the server. That way you can access it later, so that chat history can be stored. The database used by Meteor is called <a href="http://www.mongodb.org/">MongoDB</a>. In particular, Meteor uses special Javascript objects called "Collections" that feature reactivity, meaning they can change the content of the html templates in real time whenever the data is changed. Here is an example of a collection:
+  </p>
 
   <div class="panel panel-default">
     <div class="panel-body">
       <h5 class="title">collections.js</h5>
       <div class="code">
-        Users = new Meteor.Collection(&quot;users&quot;);
+        Messages = new Meteor.Collection(&quot;messages&quot;);
       </div>
     </div>
   </div>
 
   <p>
-    We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. However, if you have many collections and you want to initialize them with some seed data, you should have a separate file for each collection. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
+    We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us on the client and server. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. However, if you have many collections and you want to initialize them with some seed data, you should have a separate file for each collection. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
   </p>
 
   <p>
-    Let's see how to add a user to our collection.
+    Let's see how to add a message to our collection.
   </p>
 
   <div class="panel panel-default">
     <div class="panel-body">
       <h5 class="title">collections.js</h5>
       <div class="code">
-        Users = new Meteor.Collection(&quot;users&quot;);<br>
+        Messages = new Meteor.Collection(&quot;messages&quot;);<br>
         <br>
-        user1 = {
-        &nbsp;&nbsp;name: "Donald Knuth",
-        &nbsp;&nbsp;username: "dknuth",
-        &nbsp;&nbsp;email: "dknuth@meteorweek.com",
-        &nbsp;&nbsp;password: "dEfj4jK8",
-        &nbsp;&nbsp;age: 76
-        }
-        Users.insert(user1);
-        Users.insert({
-        &nbsp;&nbsp;name: "Donald Duck",
-        &nbsp;&nbsp;username: "dduck",
-        &nbsp;&nbsp;email: "dduck@meteorweek.com",
-        &nbsp;&nbsp;password: "uw8I6ovB",
-        &nbsp;&nbsp;age: 76
+        tempMessage = {<br>
+        &nbsp;&nbsp;user: "jonyive",<br>
+        &nbsp;&nbsp;text: "I have some ideas I want you to see",<br>
+        &nbsp;&nbsp;recipient: "IDg",<br>
+        &nbsp;&nbsp;createdAt: new Date().getTime()<br>
+        }<br>
+        <br>
+        Messages.insert(tempMessage);<br>
+        <br>
+        Messages.insert({<br>
+        &nbsp;&nbsp;user: "larrypage",<br>
+        &nbsp;&nbsp;text: "We need to talk about you-know-what",<br>
+        &nbsp;&nbsp;recipient: "serbrin",<br>
+        &nbsp;&nbsp;createdAt: new Date().getTime()<br>
         });
       </div>
     </div>
   </div>
+
+  <p>
+    So you can see that adding a new item to a collection is as easy as using the <span class="code">Collection.insert();</span> command. All we have to do is pass any javascript object as a parameter. Although you're not required to, you should use a consistent set of properties to avoid trying to accessing a property of an object that doesn't exist. Additionally, we can use <span class="code">Collection.find()</span> to get a list of items that match some properties:
+  </p>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h5 class="title">collections.js</h5>
+      <div class="code">
+        Messages = new Meteor.Collection(&quot;messages&quot;);<br>
+        <br>
+        Messages.insert({<br>
+        &nbsp;&nbsp;user: "jonyive",<br>
+        &nbsp;&nbsp;text: "I have some ideas I want you to see",<br>
+        &nbsp;&nbsp;recipient: "IDg",<br>
+        &nbsp;&nbsp;createdAt: new Date().getTime()<br>
+        });<br>
+        <br>
+        Messages.insert({<br>
+        &nbsp;&nbsp;user: "jonyive",<br>
+        &nbsp;&nbsp;text: "Coffee?",<br>
+        &nbsp;&nbsp;recipient: "tcook",<br>
+        &nbsp;&nbsp;createdAt: new Date().getTime()<br>
+        });<br>
+        <br>
+        Messages.insert({<br>
+        &nbsp;&nbsp;user: "tcook",<br>
+        &nbsp;&nbsp;text: "3:30?",<br>
+        &nbsp;&nbsp;recipient: "jonyive",<br>
+        &nbsp;&nbsp;createdAt: new Date().getTime()<br>
+        });<br>
+        <br>
+        Messages.insert({<br>
+        &nbsp;&nbsp;user: "jonyive",<br>
+        &nbsp;&nbsp;text: "Sounds good",<br>
+        &nbsp;&nbsp;recipient: "tcook",<br>
+        &nbsp;&nbsp;createdAt: new Date().getTime()<br>
+        });
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h5 class="title">example.html</h5>
+      <div class="code">
+        &lt;body&gt;<br/>&nbsp;&nbsp;&lt;p&gt;&nbsp;Messages&nbsp;from&nbsp;Jony&nbsp;Ive&nbsp;to&nbsp;Tim&nbsp;Cook:&nbsp;&lt;/p&gt;<br/>&nbsp;&nbsp;&#123;&#123;#each&nbsp;findMessages}}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123;&gt;&nbsp;message}}<br/>&nbsp;&nbsp;&#123;&#123;/each}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;message&quot;&gt;<br>&nbsp;&nbsp;&lt;br&gt;<br/>&nbsp;&nbsp;&lt;p&gt;&lt;strong&gt;From:&lt;/strong&gt;&nbsp;&#123;&#123;this.user}}&lt;/p&gt;<br/>&nbsp;&nbsp;&lt;p&gt;&lt;strong&gt;To:&lt;/strong&gt;&nbsp;&#123;&#123;this.recipient}}&lt;/p&gt;<br/>&nbsp;&nbsp;&lt;p&gt;&#123;&#123;this.text}}&lt;/p&gt;<br/>&lt;/template&gt;
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h5 class="title">example.js</h5>
+      <div class="code">
+        if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.example.findMessages&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Messages.find({&nbsp;user:&nbsp;&quot;jonyive&quot;,&nbsp;recipient:&nbsp;&quot;tcook&quot;&nbsp;});<br/>&nbsp;&nbsp;}<br/>}
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h5 class="title">localhost:3000</h5>
+      <h4> Messages from Jony Ive to Tim Cook: </h4>
+      {{#each findMessages}}
+        <br>
+        <p><strong>From:</strong> {{this.user}}</p>
+        <p><strong>To:</strong> {{this.recipient}}</p>
+        <p>{{this.text}}</p>
+      {{/each}}
+    </div>
+  </div>
+
+  <p>
+
+  </p>
+
+  <p>
+    We can use <span class="code">Collection.findOne(<em>id</em>)</span> to find just on
+    And finally, we can use <span class="code">Collection.remove(<em>id</em>)</span> to remove an item from our collection.
+  </p>
 
 </template>

@@ -1,7 +1,9 @@
 <template name="firstTemplate">
   <h2> Your First Template</h2>
 
-  <p>In Meteor, templates are declared like this:</p>
+  <p>
+    Welcome to Day 2 of <span class="brand-inline">Meteor Week</span>! Today, we're going to cover the basics of creating our own templates. In Meteor, templates are declared like this:
+  </p>
 
   <div class="panel panel-default">
     <div class="code panel-body">
@@ -11,14 +13,14 @@
 
   <p>
     We can put our templates in any .html file and they will be available to us by using
-    <br><span class="code">&#123;{> myTemplate}}</span>
+    <br><span class="code">&#123;{> templateName}}</span>
   </p>
 
   <div class="panel panel-default">
     <div class="panel-body">
       <h5 class="title">main.html</h5>
       <div class="code">
-        &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&lt;/template&gt;
+        &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template!&lt;/h1&gt;<br/>&lt;/template&gt;
       </div>
     </div>
   </div>
@@ -26,7 +28,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <h5 class="title">localhost:3000</h5>
-      <h1>This is a template</h1>
+      <h1>This is a template!</h1>
     </div>
   </div>
 
@@ -47,7 +49,7 @@
     <div class="panel-body">
       <h5 class="title">main.js</h5>
       <div class="code">
-        if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.name&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Donald&nbsp;Knuth&quot;;<br/>&nbsp;&nbsp;}<br/>}
+        if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.name&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Jonathan&nbsp;Ive&quot;;<br/>&nbsp;&nbsp;}<br/>}
       </div>
     </div>
   </div>
@@ -59,6 +61,10 @@
       <p>My name is {{onamae}}!</p>
     </div>
   </div>
+
+  <p>
+
+  </p>
 
   <p>
     We can also use <span class="code">&#123;{#each}}</span> to iterate over a list of things and do something for each.
@@ -77,7 +83,7 @@
     <div class="panel-body">
       <h5 class="title">main.js</h5>
       <div class="code">
-        if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&quot;Donald&nbsp;Knuth&quot;,&nbsp;&quot;Donald&nbsp;Trump&quot;,&nbsp;&quot;Donald&nbsp;Duck&quot;];<br/>&nbsp;&nbsp;}<br/>}
+        if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&quot;Jonathan&nbsp;Ive&quot;,&nbsp;&quot;Bill&nbsp;Gates&quot;,&nbsp;&quot;Larry&nbsp;Page&quot;];<br/>&nbsp;&nbsp;}<br/>}
       </div>
     </div>
   </div>
@@ -93,11 +99,11 @@
   </div>
 
   <p>
-    <span class="code">this</span> is a special key word that just means, "whatever is returned by the helper". Here, the helper is an <span class="code">&#123;{#each}}</span> helper, so it returns a list, which is represented in Javascript by the square brackets: <span class="code">[]</span>. For our helper, <span class="code">this</span> means "each item in our list".
+    <span class="code">this</span> is a special keyword that refers to the current javascript object in a given context. Here, the context is "whatever is returned by the helper". Since the helper is an <span class="code">&#123;{#each}}</span> helper, it returns a list, which is represented in Javascript by the square brackets: <span class="code">[]</span>. For our helper, <span class="code">this</span> means "each item in our list".
   </p>
 
   <p>
-    When we learn about collections in the next tutorial, we'll learn how helpers can iterate over objects too. Here's a sneak peek:
+    When we learn about collections in the next tutorial, we'll learn how helpers can iterate over objects in a database too. Here's a sneak peek:
   </p>
 
   <div class="panel panel-default">
@@ -113,7 +119,7 @@
     <div class="panel-body">
       <h5 class="title">main.js</h5>
       <div class="code">
-        if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Knuth&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Blue&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Trump&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Green&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Duck&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Red&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}];<br/>&nbsp;&nbsp;}<br/>}
+        if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Jonathan&nbsp;Ive&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Blue&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Bill&nbsp;Gates&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Green&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Larry&nbsp;Page&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Red&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}];<br/>&nbsp;&nbsp;}<br/>}
       </div>
     </div>
   </div>
@@ -129,7 +135,11 @@
   </div>
 
   <p>
-    We can also use a little bit of conditional logic in our templates. What if we only wanted to show the favorite color of Donald Trump and "Yellow" otherwise?
+    This example is pretty close to how collections work, but we'll see that in the next lesson.
+  </p>
+
+  <p>
+    We can also use a little bit of conditional logic in our templates. What if we only wanted to show the favorite color of Bill Gates and "Yellow" otherwise?
   </p>
 
   <div class="panel panel-default">
@@ -145,7 +155,7 @@
     <div class="panel-body">
       <h5 class="title">main.js</h5>
       <div class="code">
-        if(Meteor.isClient)&nbsp;&#123;<br/>&nbsp;&nbsp;Template.myTemplate.isTrump&nbsp;=&nbsp;function()&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.name&nbsp;===&nbsp;&quot;Donald&nbsp;Trump&quot;;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Knuth&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Blue&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Trump&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Green&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Donald&nbsp;Duck&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Red&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}];<br/>&nbsp;&nbsp;}<br/>}
+        if(Meteor.isClient)&nbsp;&#123;<br/>&nbsp;&nbsp;Template.myTemplate.isTrump&nbsp;=&nbsp;function()&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.name&nbsp;===&nbsp;&quot;Bill&nbsp;Gates&quot;;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Jonathan&nbsp;Ive&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Blue&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Bill&nbsp;Gates&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Green&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Larry&nbsp;Page&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Red&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}];<br/>&nbsp;&nbsp;}<br/>}
       </div>
     </div>
   </div>
@@ -176,7 +186,7 @@
     <div class="panel-body">
       <h5 class="title">main.html</h5>
       <div class="code">
-        &lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;Template!&lt;/h1&gt;<br/>&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&nbsp;to&nbsp;alert&quot;&nbsp;/&gt;
+        &lt;body&gt;<br/>&nbsp;&nbsp;&#123;{&gt;&nbsp;myTemplate}}<br/>&lt;/body&gt;<br/><br/>&lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;This&nbsp;is&nbsp;a&nbsp;template&lt;/h1&gt;<br/>&nbsp;&nbsp;&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&nbsp;to&nbsp;alert&quot;&nbsp;/&gt;<br/>&lt;/template&gt;
       </div>
     </div>
   </div>
@@ -203,7 +213,7 @@
   </p>
 
   <p>
-    Now you know the basics of templating! Wasn't that pretty easy? In the next lesson, we'll learn how to map urls to your templates using what's called "client-side routing".
+    Now you know the basics of templating! Wasn't that pretty easy? In the next lesson, we'll learn how to store information in Collections for easy access and storage.
   </p>
 
 </template>
