@@ -1,8 +1,10 @@
 <template name="topicsIndex">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h2> Star Map </h2>
-      {{> topicsIndexInner}} <!-- because of view on signup page -->
+    <div class="col-md-10 col-md-offset-1">
+      <h2 style=""> Star Map </h2>
+      {{#each lessons}}
+        <p style="margin-bottom: 0;"><a href="{{pathFor this.name}}"> {{this.title}} </a></p>
+      {{/each}}
     </div>
   </div>
 </template>
