@@ -1,0 +1,1 @@
+make all external links 'target="_blank"' by default
