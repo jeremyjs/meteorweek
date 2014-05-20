@@ -1,5 +1,6 @@
 
 Router.configure(
+  notFoundTemplate: 'notFound'
   layoutTemplate: 'layout'
   onAfterAction: ->
     # TODO: better way to do this?
