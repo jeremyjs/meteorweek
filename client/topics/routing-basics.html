@@ -2,68 +2,91 @@
   <h2> Routing Basics </h2>
   <p>In this lesson, we're going to learn all about Routing. Whenever you type a url into the box at the top of your browser, the website you are trying to access will usually "route" you to some page. <strong>Meteor Week</strong>, for instance, routes you to the lesson based on the part of the url in the brackets: <span class="code">https://week.meteor.com/topics/&lt;current-lesson></span> In <strong>Meteor</strong>, there is a neat third-party package called <strong>Iron Router</strong> that can handle all of the routing for us. You can give it a "layout" template, which usually consists of the navbar at the top of the page and the footer at the bottom of the page. The layout template can then be reused for some or all of our routes. <strong>Iron Router</strong> can also do other cool stuff depending on the data we give it. </p>
 
-  <p> <!-- tutorial to install node/atmosphere? -->
-  	Let's start off by downloading <strong>Iron Router</strong>. First, you will need to download <a href="atmospherejs.com"><strong>Meteorite</strong></a>, the unofficial package manager for Meteor. You can do that using node package manager: <span class="code">npm install -g meteorite</span> If you don't have NPM, you can get it <a href="npmjs.org">here</a>. Now we can add <strong>Iron Router</strong> to our project with:
+  <!-- TODO: explain basic routing and urls (localhost vs. hosting, etc.)-->
+
+  <!-- TODO: tutorial to install node/atmosphere? -->
+
+  <p>
+    Let's start off by downloading <strong>Iron Router</strong>. First, you will need to download <a target="_blank" href="https://atmospherejs.com"><strong>Meteorite</strong></a>, the unofficial package manager for Meteor. You can do that using node package manager. If you don't have NPM, you can get it <a href="npmjs.org">here</a>. You can install <strong>Meteorite</strong> with:
   </p>
 
   <div class="panel panel-default">
     <div class="panel-body">
-    	mrt add iron-router
+      <div class="code">
+        $ npm install -g meteorite
+      </div>
     </div>
   </div>
 
   <p>
-    We'll learn more about Meteorite in a later lesson; it's a really powerful tool that let's you take advantage of the many amazing packages people have written for Meteor. Okay, let's take a look at our new router. Navigate to your app and open <span class="code">router.js</span>.
+    Now we can add <strong>Iron Router</strong> to our project with:
+  </p>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="code">
+        $ mrt add iron-router
+      </div>
+    </div>
+  </div>
+
+  <p>
+    We'll learn more about Meteorite in a later lesson; it's a really powerful tool that let's you take advantage of the many amazing packages people have written for Meteor. Okay, let's take a look at our new router. Navigate to your app and create a new directory <span class="code">lib</span>. Then, create a new file in the <span class="code">lib</span> directory called <span class="code">router.js</span>.
   </p>
 
   <!-- TODO: download link for the example github repo -->
 
-  <!-- TODO: explain basic routing and urls (localhost vs. hosting, etc.)-->
+  <p>
+    You can copy and paste the following code to see first-hand how the router works.
+  </p>
 
   <div class="panel panel-default">
     <div class="panel-body">
-      <h5>lib/router.js</h5>
-      // Configuration that applies by default to all routes
-      Router.configure({
-      &nbsp;&nbsp;// Could be a 404 error page for routes not mapped
-      &nbsp;&nbsp;template: 'notFound',
-      &nbsp;&nbsp;// Default layout
-      &nbsp;&nbsp;layoutTemplate: 'layout'
-      });
-      // Router.map let's us create all of our routes
-      Router.map(function() {
-
-      &nbsp;&nbsp;// This will create a route named 'home'.
-      &nbsp;&nbsp;// Navigating to 'localhost:3000/' or 'localhost:3000'
-      &nbsp;&nbsp;// will display the template named 'home'.
-      &nbsp;&nbsp;this.route('home', {path: '/'})
-
-      &nbsp;&nbsp;// This will create a route named 'about'.
-      &nbsp;&nbsp;// Navigating to 'localhost:3000/about' will display
-      &nbsp;&nbsp;// the template named 'about'.
-      &nbsp;&nbsp;this.route('about');
-
-      <!-- TODO: test this route -->
-      &nbsp;&nbsp;// Navigating to 'localhost:3000/messages' will display
-      &nbsp;&nbsp;// the template named 'messagesList'. That template will be
-      &nbsp;&nbsp;// populated with the result of the data function within the
-      &nbsp;&nbsp;// '&#123;{> yield}}' Spacebars helper.
-      &nbsp;&nbsp;this.route('messagesList', {
-      &nbsp;&nbsp;&nbsp;&nbsp;path: '/messages',
-      &nbsp;&nbsp;&nbsp;&nbsp;data: function() { return Messages.find(); }
-      &nbsp;&nbsp;});
-
-      &nbsp;&nbsp;// Navigating to 'localhost:3000/messages/263' will display
-      &nbsp;&nbsp;// the template named 'messageShow'. That template will be
-      &nbsp;&nbsp;// populated with the values from the object with an id of 
-      &nbsp;&nbsp;// 263 from the Messages collection within the Spacebars
-      &nbsp;&nbsp;// helpers. (i.e. &#123;{title}} will show the message title.)
-      &nbsp;&nbsp;this.route('messageShow', { 
-      &nbsp;&nbsp;&nbsp;&nbsp;path: '/messages/:_id',
-      &nbsp;&nbsp;&nbsp;&nbsp;data: function() { return Messages.findOne(this.params._id); }
-      &nbsp;&nbsp;});
-
-      });
+      <h5 class="title">lib/router.js</h5>
+      <div class="code">
+        // Configuration that applies by default to all routes <br>
+        Router.configure({ <br>
+        &nbsp;&nbsp;// Could be a 404 error page for routes not mapped <br>
+        &nbsp;&nbsp;template: 'notFound', <br>
+        &nbsp;&nbsp;// Default layout <br>
+        &nbsp;&nbsp;layoutTemplate: 'layout' <br>
+        }); <br>
+        <br>
+        // Router.map lets us create all of our routes <br>
+        Router.map(function() { <br>
+        <br>
+        &nbsp;&nbsp;// This will create a route named 'home'. <br>
+        &nbsp;&nbsp;// Navigating to 'localhost:3000/' or 'localhost:3000' <br>
+        &nbsp;&nbsp;// will display the template named 'home'. <br>
+        &nbsp;&nbsp;this.route('home', {path: '/'}) <br>
+        <br>
+        &nbsp;&nbsp;// This will create a route named 'about'. <br>
+        &nbsp;&nbsp;// Navigating to 'localhost:3000/about' will display <br>
+        &nbsp;&nbsp;// the template named 'about'. <br>
+        &nbsp;&nbsp;this.route('about'); <br>
+        <br>
+        <!-- TODO: test this route --> <br>
+        &nbsp;&nbsp;// Navigating to 'localhost:3000/messages' will display <br>
+        &nbsp;&nbsp;// the template named 'messagesList'. That template will be <br>
+        &nbsp;&nbsp;// populated with the result of the data function within the <br>
+        &nbsp;&nbsp;// '&#123;{> yield}}' Spacebars helper. <br>
+        &nbsp;&nbsp;this.route('messagesList', { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;path: '/messages', <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;data: function() { return Messages.find(); } <br>
+        &nbsp;&nbsp;}); <br>
+        <br>
+        &nbsp;&nbsp;// Navigating to 'localhost:3000/messages/263' will display <br>
+        &nbsp;&nbsp;// the template named 'messageShow'. That template will be <br>
+        &nbsp;&nbsp;// populated with the values from the object with an id of <br>
+        &nbsp;&nbsp;// 263 from the Messages collection within the Spacebars <br>
+        &nbsp;&nbsp;// helpers. (i.e. &#123;{title}} will show the message title.) <br>
+        &nbsp;&nbsp;this.route('messageShow', { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;path: '/messages/:_id', <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;data: function() { return Messages.findOne(this.params._id); } <br>
+        &nbsp;&nbsp;}); <br>
+        <br>
+        });
+      </div>
     </div>
   </div>
 
@@ -99,6 +122,12 @@
         &nbsp;&nbsp;&lt;h5>Recipient: &#123;{recipient}}&lt;/h5><br>
         &nbsp;&nbsp;&lt;p>&#123;{text}}&lt;/p><br>
         &nbsp;&nbsp;&lt;p>&#123;{createdAt}}&lt;/p><br>
+        &lt;/template><br>
+        <br>
+        &lt;template name="notFound"><br>
+        &nbsp;&nbsp;&lt;a href="&#123;{pathFor 'home'}}">Home&lt;/a><br>
+        &nbsp;&nbsp;&lt;h1>URL Error&lt;/h1><br>
+        &nbsp;&nbsp;&lt;p>Page not found&lt;/p><br>
         &lt;/template>
       </div>
     </div>

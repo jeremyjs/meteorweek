@@ -25,35 +25,41 @@
   <div class="container">
     <br>
 
-    <div class="row">
-      <div class="col-sm-4">
+    <!-- TODO: find a better way to standardize panel size -->
+
+    <div class="std-panels">
+      <div class="col-sm-5 col-sm-offset-1">
         <div class="panel panel-default">
           <div class="panel-body">
             <h3 class="lander">Meteor is the future.</h3>
-            <a href="http://www.meteor.com" target="_blank">Meteor</a> is a full-stack web development framework that makes developing web and mobile applications easier than ever before.
+            <a href="http://www.meteor.com" target="_blank">Meteor</a> is a full-stack framework that makes developing web applications easier than ever before.
           </div>
         </div>
       </div>
-    	<div class="col-sm-4">
-      	<div class="panel panel-default">
+      <div class="col-sm-5">
+        <div class="panel panel-default">
           <div class="panel-body">
             <h3 class="lander">Learn web development.</h3>
             Through a series of videos and interactive tutorials, we show you how to develop amazing Meteor applications.
           </div>
         </div>
       </div>
-    	<div class="col-sm-4">
-      	<div class="panel panel-default">
+    <!-- <div class="col-sm-4">
+        <div class="panel panel-default">
           <div class="panel-body">
             <h3 class="lander">Get personalized support.</h3>
             We're available 24/7 in case you get stuck.
             <br><br><br>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
-    {{> footer}}
+    <div class="row">
+      <div class="col-sm-12">
+        {{> landerFooter}}
+      </div>
+    </div>
 
   </div>
 

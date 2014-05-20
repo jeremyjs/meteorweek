@@ -1,8 +1,10 @@
+
 Router.configure(
   layoutTemplate: 'layout'
-  # onAfterAction: ->
-  #   $('.content-inner').scrollTop(0)
-  #   $(window).scrollTop(0)
+  onAfterAction: ->
+    # TODO: better way to do this?
+    $('.content-inner').scrollTop(0)
+    $(window).scrollTop(0)
 )
 
 # Router.onBeforeAction('loading')
@@ -28,6 +30,7 @@ Router.map( ->
         lessons: l
     }
   )
+  # TODO: best way to dynamically create routes
   # create lesson routes
   for i in [1...lessons.length-1] by 1
     route = lessons[i][0]

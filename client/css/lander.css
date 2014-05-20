@@ -1,19 +1,14 @@
-html,body {
+html{
   height:100%;
 }
-
-h1.lander {
-  color: #fff;
-  margin: 0;
+body {
+  height:100%;
+  background: url("/img/milky-way.jpg") no-repeat fixed center;
 }
-
-/* Custom container */
 .container-full {
   margin: 0 auto;
   width: 100%;
-  min-height: 80%;
   background: url('img/milky-way.jpg') no-repeat fixed center;
-  /*color:#eee;*/
   overflow:hidden;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/milky-way.jpg");
   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/milky-way.jpg");
@@ -23,7 +18,26 @@ h1.lander {
   background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/milky-way.jpg");
 
 }
-
 .v-center {
   margin-top: 7%;
+}
+form.lander-form {
+  margin-top: 0;
+}
+h1.lander {
+  font-family: Arial,sans-serif;
+  font-size: 80px;
+  color:#fff;
+  margin: 0;
+}
+h2.lander {
+  color: white;
+  padding-top: 30px;
+  font-size: 46px;
+}
+.btn-lander {
+  border-radius: 3px;
+}
+.std-panels .panel{
+  min-height: 100px;
 }

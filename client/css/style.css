@@ -1,5 +1,33 @@
 /* CSS declarations go here */
 
+/* TYPOGRAPHY */
+h2 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+p, ul {
+  font-size: 18px;
+}
+h4.lead {
+  font-size: 18px;
+  color: black;
+}
+.faded {
+  color: #777;
+}
+code, .code {
+  color: #333;
+  font-family: Courier;
+  font-size: 16px;
+  line-height: 24px;
+}
+.code-inline {
+  font-family: Courier;
+  font-size: 16px;
+  line-height: 24px;
+  /*padding-left: 4px;*/
+}
+
 /* NAVBAR */
 .navbar-brand {
   padding: 0;
@@ -22,25 +50,7 @@
 }
 
 /* LANDER */
-body {
-  background: url("/img/milky-way.jpg") no-repeat fixed center;
-}
-form.lander-form {
-  margin-top: 0;
-}
-h1.lander {
-  font-family: Arial,sans-serif;
-  font-size: 80px;
-  color:#fff;
-}
-h2.lander {
-  color: white;
-  padding-top: 30px;
-  font-size: 46px;
-}
-.btn-lander {
-  border-radius: 3px;
-}
+/* See /client/css/lander.css */
 
 /* PANELS */
 .panel h3 {
@@ -61,37 +71,16 @@ ul.centered > li {
   float: none;
   margin-left: 1%;
 }
+.inline-list {
+  font-size: 14px;
+}
 .container {
   padding: 0 30px;
 }
 
-/* TYPOGRAPHY */
-h2 {
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-.lead {
-  color: #989898;
-}
-.faded {
-  color: #777;
-}
-code, .code {
-  color: #333;
-  font-family: Courier;
-  font-size: 16px;
-  line-height: 24px;
-}
-.code-inline {
-  font-family: Courier;
-  font-size: 16px;
-  line-height: 24px;
-  /*padding-left: 4px;*/
-}
-
 /* CONTAINER */
 @media (min-width: 768px) {
-  .container {
+  .container.size-limit-md {
     max-width: 730px;
   }
 }
@@ -140,6 +129,9 @@ p {
 }
 .blue {
   color: #1947D1;
+}
+.offwhite {
+  color: #ccc;
 }
 .button-rounded {
   border-radius: 7.5px;
