@@ -1,8 +1,8 @@
 Router.configure(
   layoutTemplate: 'layout'
-  onAfterAction: ->
-    $('.content-inner').scrollTop(0)
-    $(window).scrollTop(0)
+  # onAfterAction: ->
+  #   $('.content-inner').scrollTop(0)
+  #   $(window).scrollTop(0)
 )
 
 # Router.onBeforeAction('loading')
