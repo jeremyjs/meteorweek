@@ -42,6 +42,13 @@ code, .code {
   color: #fff;
   text-shadow: 0 0 0.2em #fff
 }
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #fff;
+  text-shadow: 0 0 0.2em #fff
+}
 .navbar > .container-fluid .navbar-brand {
   margin-left: 15px;
 }

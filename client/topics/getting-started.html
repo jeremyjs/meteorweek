@@ -18,7 +18,7 @@
   </div>
 
   <p>
-    If you don't have curl installed, you can get it on most linux distributions with<span class="code-inline"> sudo apt-get install curl</span>. It should be included by default on Mac.
+    If you don't have curl installed, you can get it on most linux distributions with <code>sudo apt-get install curl</code>. It should be included by default on Mac.
   </p>
 
   <p>
@@ -44,7 +44,7 @@
   </div>
 
   <p>
-    In your new app, you'll find three files: <span class="code-inline">myFirstApp.html</span>, <span class="code-inline">myFirstApp.css</span>, and <span class="code-inline">myFirstApp.js</span>. Let's go ahead and run the local server. All you have to do is type:
+    In your new app, you'll find three files: <code>myFirstApp.html</code>, <code>myFirstApp.css</code>, and <code>myFirstApp.js</code>. Let's go ahead and run the local server. All you have to do is type:
   </p>
 
   <div class="panel panel-default">
@@ -95,11 +95,11 @@
   </div>
 
   <p>
-    Let's go through these one part at a time. The first few lines of <span class="code-inline">myFirstApp.html</span> are the head, where you put the title of your application that appears in the browser tab. Notice that you don't need the <span class="code-inline">&lt;!DOCTYPE HTML&gt;</span> tag; Meteor provides that for you when it bundles all of the files on the server.
+    Let's go through these one part at a time. The first few lines of <code>myFirstApp.html</code> are the head, where you put the title of your application that appears in the browser tab. Notice that you don't need the <code>&lt;!DOCTYPE HTML&gt;</code> tag; Meteor provides that for you when it bundles all of the files on the server.
   </p>
 
   <p>
-    Next, you have the <span class="code-inline">&lt;body&gt;</span> tag. Inside is a template render statement in Spacebars, the templating language used by Meteor, which is based on Handlebars. The <span class="code-inline">&#123;{> hello}}</span> statement tells Meteor to render the <span class="code-inline">hello</span> template inside the <span class="code-inline">body</span> tag.
+    Next, you have the <code>&lt;body&gt;</code> tag. Inside is a template render statement in Spacebars, the templating language used by Meteor, which is based on Handlebars. The <code>&#123;{> hello}}</code> statement tells Meteor to render the <code>hello</code> template inside the <code>body</code> tag.
   </p>
 
   <div class="panel panel-default">
@@ -112,7 +112,7 @@
   </div>
 
   <p>
-    The last thing in <span class="code-inline">myFirstApp.html</span> is the hello template, which is rendered in the body.
+    The last thing in <code>myFirstApp.html</code> is the hello template, which is rendered in the body.
   </p>
 
   <p>
@@ -163,7 +163,7 @@
   </p>
 
   <p>
-    Next, we'll learn about Spacebars helpers. The <span class="code-inline">&#123;{greeting}}</span> Spacebars tag activates the helper in <span class="code-inline">myFirstApp.js</span>, which returns the greeting, "Welcome to myFirstApp." The helper variable has three parts. <span class="code-inline">Template</span> returns the javascript object containing all of our Meteor templates. <span class="code-inline">.hello</span> simply accesses the <span class="code-inline">hello</span> template from the template object. Finally, <span class="code-inline">.greeting</span> accesses the <span class="code-inline">greeting</span> helper for the <span class="code-inline">hello</span> template. Here, we set the value of the <span class="code-inline">greeting</span> helper to a function, which is evaluated, and the value of the return statement (a string) is rendered in the html view.
+    Next, we'll learn about Spacebars helpers. The <code>&#123;{greeting}}</code> Spacebars tag activates the helper in <code>myFirstApp.js</code>, which returns the greeting, "Welcome to myFirstApp." The helper variable has three parts. <code>Template</code> returns the javascript object containing all of our Meteor templates. <code>.hello</code> simply accesses the <code>hello</code> template from the template object. Finally, <code>.greeting</code> accesses the <code>greeting</code> helper for the <code>hello</code> template. Here, we set the value of the <code>greeting</code> helper to a function, which is evaluated, and the value of the return statement (a string) is rendered in the html view.
   </p>
 
   <div class="panel panel-default">
@@ -176,7 +176,7 @@
   </div>
 
 <!--   <p>
-    <span class="code-inline">Template.hello.greeting</span> has three parts: <span class="code-inline">Template</span> refers to the Meteor object holding all of the templates in our application. <span class="code-inline">.hello</span> then filters to retrieve the template named "hello". Finally, <span class="code-inline">.greeting</span> refers to the "greeting" helper of the "hello" template.
+    <code>Template.hello.greeting</code> has three parts: <code>Template</span> refers to the Meteor object holding all of the templates in our application. <code>.hello</span> then filters to retrieve the template named "hello". Finally, <code>.greeting</span> refers to the "greeting" helper of the "hello" template.
   </p> -->
 
   <p>Let's go ahead and change the greeting.</p>
@@ -202,7 +202,7 @@
   </p>
 
   <p>
-    In addition to helpers, we can also set event handlers for certain actions the user might take, such as clicking on buttons. That's what the next part of <span class="code-inline">myFirstApp.js</span> does:
+    In addition to helpers, we can also set event handlers for certain actions the user might take, such as clicking on buttons. That's what the next part of <code>myFirstApp.js</code> does:
   </p>
 
   <div class="panel panel-default">
@@ -215,11 +215,11 @@
   </div>
 
   <p>
-    It's a pretty intuitive syntax, <span class="code-inline">'click input'</span>. Whenever someone clicks on any input element in the hello template, this function will be called. All this function does is log a message to the browser console whenever the button is clicked. The developer tools, including the browser console can be opened in most browsers with "f12" or in safari, Cmd-Opt-C or Ctrl-Alt-C when using safari in an OS other than Mac.
+    It's a pretty intuitive syntax, <code>'click input'</code>. Whenever someone clicks on any input element in the hello template, this function will be called. All this function does is log a message to the browser console whenever the button is clicked. The developer tools, including the browser console can be opened in most browsers with "f12" or in safari, Cmd-Opt-C or Ctrl-Alt-C when using safari in an OS other than Mac.
   </p>
 
   <p>
-    There's one more thing you should know about Meteor apps. If you look in <span class="code-inline">myFirstApp.js</span>, you'll see two statements: <span class="code-inline">Meteor.isClient</span> and <span class="code-inline">Meteor.isServer</span>. In Meteor, javascript code is used on both the client side and the server side. This is because Meteor is built on Node.js which uses server side javascript code. This is good for us because we only have to learn one language for both the front end and the back end. These statements tell us whether we are running on the client or server. The cool thing is that we can write helper functions in another file that can be used anywhere. Let's make one now.
+    There's one more thing you should know about Meteor apps. If you look in <code>myFirstApp.js</code>, you'll see two statements: <code>Meteor.isClient</code> and <code>Meteor.isServer</code>. In Meteor, javascript code is used on both the client side and the server side. This is because Meteor is built on Node.js which uses server side javascript code. This is good for us because we only have to learn one language for both the front end and the back end. These statements tell us whether we are running on the client or server. The cool thing is that we can write helper functions in another file that can be used anywhere. Let's make one now.
   </p>
 
   <p>
@@ -238,7 +238,7 @@
   </div>
 
   <p>
-    Notice that we didn't use the <span class="code-inline">var</span> keyword. In Meteor, declaring variables with the <span class="code-inline">var</span> keyword limits the use of that variable to that file. If we omit the <span class="code-inline">var</span> keyword, our new <span class="code-inline">log</span> function is available in <span class="code-inline">myFirstApp.js</span> and any other javascript file in our application. Now, we can call our function on both the client and the server in<span class="code-inline">myFirstApp.js</span>:
+    Notice that we didn't use the <code>var</code> keyword. In Meteor, declaring variables with the <code>var</code> keyword limits the use of that variable to that file. If we omit the <code>var</code> keyword, our new <code>log</code> function is available in <code>myFirstApp.js</code> and any other javascript file in our application. Now, we can call our function on both the client and the server in<code>myFirstApp.js</code>
   </p>
 
   <div class="panel panel-default">

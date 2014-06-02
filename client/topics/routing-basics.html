@@ -1,6 +1,6 @@
 <template name="routingBasics">
   <h2> Routing Basics </h2>
-  <p>In this lesson, we're going to learn all about Routing. Whenever you type a url into the box at the top of your browser, the website you are trying to access will usually "route" you to some page. <strong>Meteor Week</strong>, for instance, routes you to the lesson based on the part of the url in the brackets: <span class="code">https://week.meteor.com/topics/&lt;current-lesson></span> In <strong>Meteor</strong>, there is a neat third-party package called <strong>Iron Router</strong> that can handle all of the routing for us. You can give it a "layout" template, which usually consists of the navbar at the top of the page and the footer at the bottom of the page. The layout template can then be reused for some or all of our routes. <strong>Iron Router</strong> can also do other cool stuff depending on the data we give it. </p>
+  <p>In this lesson, we're going to learn all about Routing. Whenever you type a url into the box at the top of your browser, the website you are trying to access will usually "route" you to some page. <strong>Meteor Week</strong>, for instance, routes you to the lesson based on the part of the url: <code>https://week.meteor.com/topics/:lesson</code> In <strong>Meteor</strong>, there is a neat third-party package called <strong>Iron Router</strong> that can handle all of the routing for us. You can give it a "layout" template, which usually consists of the navbar at the top of the page and the footer at the bottom of the page. The layout template can then be reused for some or all of our routes. <strong>Iron Router</strong> can also do other cool stuff depending on the data we give it. </p>
 
   <!-- TODO: explain basic routing and urls (localhost vs. hosting, etc.)-->
 
@@ -31,7 +31,7 @@
   </div>
 
   <p>
-    We'll learn more about Meteorite in a later lesson; it's a really powerful tool that let's you take advantage of the many amazing packages people have written for Meteor. Okay, let's take a look at our new router. Navigate to your app and create a new directory <span class="code">lib</span>. Then, create a new file in the <span class="code">lib</span> directory called <span class="code">router.js</span>.
+    We'll learn more about Meteorite in a later lesson; it's a really powerful tool that let's you take advantage of the many amazing packages people have written for Meteor. Okay, let's take a look at our new router. Navigate to your app and create a new directory <code>lib</code>. Then, create a new file in the <code>lib</code> directory called <code>router.js</code>.
   </p>
 
   <!-- TODO: download link for the example github repo -->

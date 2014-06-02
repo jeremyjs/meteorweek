@@ -14,7 +14,7 @@
   </div>
 
   <p>
-    We can put our collection declaration into any <span class="code">.js</span> file, outside of any <span class="code">Meteor.isClient</span> and <span class="code">Meteor.isServer</span> statements, and the collection will be made available to us on the client and server. It is good practice to put all of your collection declarations in the same file, called <span class="code">Collections.js</span>. However, if you have many collections and you want to initialize them with some seed data, you could have a separate file for each collection. In this tutorial, we will just use one <span class="code">.js</span> file to demonstrate how all of the different code dealing with collections fits together.
+    We can put our collection declaration into any <code>.js</code> file, outside of any <code>Meteor.isClient</code> and <code>Meteor.isServer</code> statements, and the collection will be made available to us on the client and server. It is good practice to put all of your collection declarations in the same file, called <code>Collections.js</code>. However, if you have many collections and you want to initialize them with some seed data, you could have a separate file for each collection. In this tutorial, we will just use one <code>.js</code> file to demonstrate how all of the different code dealing with collections fits together.
   </p>
 
   <p>
@@ -47,7 +47,7 @@
   </div>
 
   <p>
-    So you can see that adding a new item to a collection is as easy as using the <span class="code">Collection.insert();</span> command. All we have to do is pass any javascript object as a parameter. Although you're not required to, you should use a consistent set of properties to avoid trying to accessing a property of an object that doesn't exist. Additionally, we can use <span class="code">Collection.find()</span> to get a list of items that match some properties:
+    So you can see that adding a new item to a collection is as easy as using the <code>Collection.insert();</code> command. All we have to do is pass any javascript object as a parameter. Although you're not required to, you should use a consistent set of properties to avoid trying to accessing a property of an object that doesn't exist. Additionally, we can use <code>Collection.find()</code> to get a list of items that match some properties:
   </p>
 
   <div class="panel panel-default">
@@ -158,12 +158,12 @@
   </p>
 
   <p>
-    Every object in the database has a unique id that we can use to find that object in our collection using <span class="code">MyCollection.findOne(<em>id</em>)</span>. We'll see how that becomes useful in the next lesson when we learn about routing. We can access an object's id like so: <span class="code">object._id</span>. To remove an object from our database, we can use <span class="code">MyCollection.remove(<em>id</em>)</span>.
+    Every object in the database has a unique id that we can use to find that object in our collection using <code>MyCollection.findOne(<em>id</em>)</code>. We'll see how that becomes useful in the next lesson when we learn about routing. We can access an object's id like so: <code>object._id</code>. To remove an object from our database, we can use <code>MyCollection.remove(<em>id</em>)</code>.
   </p>
 
   <p>
     The last method we will learn about is update: <br>
-    <span class="code">MyCollection.update(<em>selector</em>, <em>modifier</em>)</span>.<br>
+    <code>MyCollection.update(<em>selector</em>, <em>modifier</em>)</code>.<br>
     Here's a code example.
   </p>
 
@@ -188,7 +188,7 @@
   </p>
 
   <p>
-    One more note about collections. When you call <span class="code">MyCollection.find()</span>, instead of getting a plain old array of objects, <span class="code">find()</span> returns what's called a <em>cursor</em>. That allows the reactivity part of Meteor templates to work properly for the <span class="code">&#123;{#each}}</span> helper we saw before. If you want to get a plain old array, like for debugging, or to do some fancy data manipulation, you can use the <span class="code">fetch()</span> method like this: <span class="code">MyCollection.find().fetch()</span>
+    One more note about collections. When you call <code>MyCollection.find()</code>, instead of getting a plain old array of objects, <code>find()</code> returns what's called a <em>cursor</em>. That allows the reactivity part of Meteor templates to work properly for the <code>&#123;{#each}}</code> helper we saw before. If you want to get a plain old array, like for debugging, or to do some fancy data manipulation, you can use the <code>fetch()</code> method like this: <code>MyCollection.find().fetch()</code>
   </p>
 
   <p>

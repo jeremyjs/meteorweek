@@ -1,3 +1,14 @@
+lessons = [
+  ["", ""]
+  ["gettingStarted", "Getting Started"]
+  ["firstTemplate", "Your First Template"]
+  ["introCollections", "Intro to Collections"]
+  ["routingBasics", "Routing Basics"]
+  ["publishSubscribe", "Publish & Subscribe"]
+  ["introAccounts", "User Accounts"]
+  ["introHosting", "Best Practices & Hosting"]
+  ["", ""]
+]
 
 Router.configure(
   notFoundTemplate: 'notFound'
@@ -31,7 +42,7 @@ Router.map( ->
         lessons: l
     }
   )
-  # TODO: best way to dynamically create routes
+  # TODO: best way to dynamically create routes?
   # create lesson routes
   for i in [1...lessons.length-1] by 1
     route = lessons[i][0]

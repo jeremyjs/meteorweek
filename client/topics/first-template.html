@@ -14,7 +14,7 @@
   </div>
 
   <p>
-    We can put our templates in any .html file and they will be available to us by using the Spacebars helper for rendering templates: <span class="code">&#123;{> templateName}}</span>
+    We can put our templates in any .html file and they will be available to us by using the Spacebars helper for rendering templates: <code>&#123;{> templateName}}</code>
   </p>
 
   <div class="panel panel-default">
@@ -40,7 +40,7 @@
   </div>
 
   <p>
-    We can create our own handlebars helpers like <span class="code">&#123;{name}}</span> which will call the javascript function that is bound to our template with <span class="code">Template.myTemplate.name</span>
+    We can create our own handlebars helpers like <code>&#123;{name}}</code> which will call the javascript function that is bound to our template with <code>Template.myTemplate.name</code>
   </p>
 
   <div class="panel panel-default">
@@ -81,7 +81,7 @@
   </div>
 
   <p>
-    We can also use <span class="code">&#123;{#each}}</span> to iterate over a list of things and render some html for each object in the list.
+    We can also use <code>&#123;{#each}}</code> to iterate over a list of things and render some html for each object in the list.
   </p>
 
   <div class="panel panel-default">
@@ -137,7 +137,7 @@
   </div>
 
   <p>
-    The value of <span class="code">this</span> depends on the context. Here, when we use an <span class="code">&#123;{#each}}</span> helper, the context is each item in our list, so if we pass a list of javascript objects, we can use <span class="code">this</span> to access their properties.
+    The value of <code>this</code> depends on the context. Here, when we use an <code>&#123;{#each}}</code> helper, the context is each item in our list, so if we pass a list of javascript objects, we can use <code>this</code> to access their properties.
   </p>
 
   <p>
@@ -195,7 +195,7 @@
   </p>
 
   <p>
-    We can create our own events by defining our template's event map using <span class="code">Template.myTemplate.events()</span>
+    We can create our own events by defining our template's event map using <code>Template.myTemplate.events()</code>
   </p>
 
   <div class="panel panel-default">
@@ -225,7 +225,7 @@
   </div>
 
   <p>
-    What this means is that whenever someone clicks on any input element in <span class="code">myTemplate</span>, this function will be called and will alert the user. You can see code examples for all kinds of events <a href="/references/events">here</a>.
+    What this means is that whenever someone clicks on any input element in <code>myTemplate</code>, this function will be called and will alert the user. You can see code examples for all kinds of events <a href="/references/events">here</a>.
   </p>
 
   <p>
