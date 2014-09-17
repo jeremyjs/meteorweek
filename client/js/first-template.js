@@ -5,22 +5,22 @@ if(Meteor.isClient) {
   Template.firstTemplate.names = function() {
     return ["Jonathan Ive", "Bill Gates", "Larry Page"];
   };
-  Template.firstTemplate.isGates = function() {
+  Template.firstTemplate.isBill = function() {
     return this.name === "Bill Gates";
   };
   Template.firstTemplate.people = function() {
     return [
       {
         "name" : "Jonathan Ive",
-        "color" : "red"
+        "color" : "Red"
       },
       {
         "name" : "Bill Gates",
-        "color" : "blue"
+        "color" : "Blue"
       },
       {
         "name" : "Larry Page",
-        "color" : "green"
+        "color" : "Green"
       }
     ];
   };

@@ -66,7 +66,7 @@
         if(Meteor.isClient)&nbsp;{<br/>
         &nbsp;&nbsp;Template.myTemplate.name&nbsp;=&nbsp;function()&nbsp;{<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;Jonathan&nbsp;Ive&quot;;<br/>
-        &nbsp;&nbsp;}<br/>
+        &nbsp;&nbsp;};<br/>
         }
       </div>
     </div>
@@ -94,7 +94,9 @@
         <br/>
         &lt;template&nbsp;name=&quot;myTemplate&quot;&gt;<br/>
         &nbsp;&nbsp;&#123;{#each&nbsp;people}}<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;I'm &#123;{this.name}}, and my favorite color is &#123;{this.color}}!&lt;/p&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm &#123;{this.name}}, and my favorite color is &#123;{this.color}}!<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br/>
         &nbsp;&nbsp;&#123;{/each}}<br/>
         &lt;/template&gt;
       </div>
@@ -109,19 +111,21 @@
 
         if(Meteor.isClient) {<br/>
         &nbsp;&nbsp;Template.myTemplate.people = function() {<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;return [ {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Jonathan Ive",<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: "red"<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;},<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;{<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Bill Gates",<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: "blue"<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;},<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;{<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Larry Page",<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: "green"<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-        &nbsp;&nbsp;];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return [<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Jonathan Ive",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: "red"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Bill Gates",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: "blue"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Larry Page",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: "green"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;];<br>
+        &nbsp;&nbsp;};<br>
         }
       </div>
     </div>
@@ -171,7 +175,25 @@
     <div class="panel-body">
       <h5 class="title">main.js</h5>
       <div class="code">
-        if(Meteor.isClient)&nbsp;&#123;<br/>&nbsp;&nbsp;Template.myTemplate.isTrump&nbsp;=&nbsp;function()&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.name&nbsp;===&nbsp;&quot;Bill&nbsp;Gates&quot;;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Jonathan&nbsp;Ive&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Blue&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Bill&nbsp;Gates&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Green&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Larry&nbsp;Page&quot;,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Red&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}];<br/>&nbsp;&nbsp;}<br/>}
+        if(Meteor.isClient)&nbsp;&#123;<br/>
+        &nbsp;&nbsp;Template.myTemplate.isBill&nbsp;=&nbsp;function()&nbsp;&#123;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.name&nbsp;===&nbsp;&quot;Bill&nbsp;Gates&quot;;<br/>
+        &nbsp;&nbsp;}<br/>
+        &nbsp;&nbsp;Template.myTemplate.people&nbsp;=&nbsp;function()&nbsp;&#123;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[&#123;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Jonathan&nbsp;Ive&quot;,<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Blue&quot;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;},<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Bill&nbsp;Gates&quot;,<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Green&quot;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;},<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;&nbsp;:&nbsp;&quot;Larry&nbsp;Page&quot;,<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;&nbsp;:&nbsp;&quot;Red&quot;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;}];<br/>
+        &nbsp;&nbsp;};<br/>
+        }
       </div>
     </div>
   </div>
@@ -181,7 +203,7 @@
       <h5 class="title">localhost:3000</h5>
       <h1>This is a template</h1>
       {{#each people}}
-          {{#if isTrump}}
+          {{#if isBill}}
           <p>{{this.name}}'s favorite color is {{this.color}}!</p>
           {{else}}
           <p>{{this.name}}'s favorite color is Yellow!</p>

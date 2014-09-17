@@ -100,7 +100,11 @@
     <div class="panel-body">
       <h5 class="title">example.js</h5>
       <div class="code">
-        if(Meteor.isClient)&nbsp;{<br/>&nbsp;&nbsp;Template.example.findMessages&nbsp;=&nbsp;function()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Messages.find({&nbsp;user:&nbsp;&quot;jonyive&quot;,&nbsp;recipient:&nbsp;&quot;tcook&quot;&nbsp;});<br/>&nbsp;&nbsp;}<br/>}
+        if(Meteor.isClient)&nbsp;{<br/>
+        &nbsp;&nbsp;Template.example.findMessages&nbsp;=&nbsp;function()&nbsp;{<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Messages.find({&nbsp;user:&nbsp;&quot;jonyive&quot;,&nbsp;recipient:&nbsp;&quot;tcook&quot;&nbsp;});<br/>
+        &nbsp;&nbsp;};<br/>
+        }
       </div>
     </div>
   </div>
@@ -130,9 +134,7 @@
         &nbsp;&nbsp;Template.example.findMessages = function() {<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;return Messages.find(<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ user: "jonyive", recipient: "tcook" },<br/>
-        <span class="highlighted">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ sort: {createdAt: -1}, limit: 1 }<br>
-        </span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlighted">{ sort: {createdAt: -1}, limit: 1 }</span><br>
         &nbsp;&nbsp;&nbsp;&nbsp;);<br>
         &nbsp;&nbsp;}<br/>
         }

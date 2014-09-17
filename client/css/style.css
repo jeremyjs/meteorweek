@@ -91,6 +91,11 @@ ul.centered > li {
     max-width: 730px;
   }
 }
+@media (min-width: 768px) {
+  .row {
+    padding: 0 15px;
+  }
+}
 
 /* WHITE */
 .white-bg {

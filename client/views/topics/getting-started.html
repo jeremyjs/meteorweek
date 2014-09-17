@@ -18,25 +18,21 @@
   </div>
 
   <p>
-    If you don't have curl installed, you can get it on most linux distributions with <code>sudo apt-get install curl</code>. It should be included by default on Mac.
-  </p>
-
-  <p>
     Meteor is not currently supported on Windows, but you can try Nitrous.io or this website if you'd like. Note that your results may vary.
   </p>
 
   <p> Unfortunately, Meteor is not currently supported on Windows, but you are welcome to try <a target="_blank" href="http://win.meteor.com/">this website</a> or <a target="_blank" href="http://nitrous.io">Nitrous.io</a> instead. Note that your results may vary.</p>
 
   <p>
-    Okay, let's create our first application! Pick a location where you'd like to create the project. I suggest making a folder for all of your meteor projects. All you have to do to create a meteor app is use the meteor create command:
+  Okay, let's create our first application! Pick a location where you'd like to create the project. I suggest making a folder for all of your meteor projects. To create a new meteor app, use the <span class="code inline">meteor create</span> command:
   </p>
 
   <div class="panel panel-default">
     <div class="code panel-body">
-      $ cd MeteorAppsDir <br/>
+      $ cd my_meteor_apps <br/>
       $ meteor create myFirstApp <br/>
       myFirstApp: created. <br/>
-      ... <br/>
+      ... <br/> <!-- Not sure if should include output -->
       $ cd myFirstApp <br/>
       $ ls <br/>
       myFirstApp.css&nbsp;&nbsp;myFirstApp.html&nbsp;&nbsp;myFirstApp.js
@@ -44,7 +40,7 @@
   </div>
 
   <p>
-    In your new app, you'll find three files: <code>myFirstApp.html</code>, <code>myFirstApp.css</code>, and <code>myFirstApp.js</code>. Let's go ahead and run the local server. All you have to do is type:
+  In your new app, you'll find three files: <code>myFirstApp.html</code>, <code>myFirstApp.css</code>, and <code>myFirstApp.js</code>. You can run a local meteor server with the <span class="code inline">meteor</span> command:
   </p>
 
   <div class="panel panel-default">
@@ -115,10 +111,6 @@
     The last thing in <code>myFirstApp.html</code> is the hello template, which is rendered in the body.
   </p>
 
-  <p>
-    Meteor comes with its own templating engine called Blaze which uses a custom Handlebars syntax called Spacebars. To find out more about Blaze and Spacebars, check out the <a target="_blank" href="http://docs.meteor.com/#livehtmltemplates">Official Meteor Documentation</a>. We'll cover the basics of templating in a later lesson.
-  </p>
-
   <div class="panel panel-default">
     <div class="code panel-body">
       <h5 class="title">myFirstApp.html</h5>
@@ -128,24 +120,23 @@
     </div>
   </div>
 
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h5 class="title">localhost:3000</h5>
-      <h1>Hello World!</h1>
-      Welcome to myFirstApp.
-      <input type="button" value="Click" />
-    </div>
-  </div>
+  <p>
+    Meteor comes with its own templating engine called Blaze. To find out more about Blaze and Spacebars, check out the <a target="_blank" href="http://docs.meteor.com/#livehtmltemplates">Official Meteor Documentation</a>. We'll cover the basics of templating in the next lesson.
+  </p>
 
   <p>
-    Here comes the cool part. Try changing the "Hello World!" heading tag to anything you want.
+    Now for the cool part. Try changing the "Hello World!" heading tag to anything you want.
   </p>
 
   <div class="panel panel-default">
     <div class="panel-body">
       <h5 class="title">myFirstApp.html</h5>
       <div class="code">
-        &lt;template&nbsp;name=&quot;hello&quot;&gt;<br/>&nbsp;&nbsp;&lt;h1&gt;Greetings, World!&lt;/h1&gt;<br/>&nbsp;&nbsp;&#123;{greeting}}<br/>&nbsp;&nbsp;&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&quot;&nbsp;/&gt;<br/>&lt;/template&gt;
+        &lt;template&nbsp;name=&quot;hello&quot;&gt;<br/>
+        &nbsp;&nbsp;<span class="highlighted">&lt;h1&gt;Greetings, World!&lt;/h1&gt;<br/></span>
+        &nbsp;&nbsp;&#123;{greeting}}<br/>
+        &nbsp;&nbsp;&lt;input&nbsp;type=&quot;button&quot;&nbsp;value=&quot;Click&quot;&nbsp;/&gt;<br/>
+        &lt;/template&gt;
       </div>
     </div>
   </div>
@@ -163,17 +154,24 @@
   </p>
 
   <p>
-    Next, we'll learn about Spacebars helpers. The <code>&#123;{greeting}}</code> Spacebars tag activates the helper in <code>myFirstApp.js</code>, which returns the greeting, "Welcome to myFirstApp." The helper variable has three parts. <code>Template</code> returns the javascript object containing all of our Meteor templates. <code>.hello</code> simply accesses the <code>hello</code> template from the template object. Finally, <code>.greeting</code> accesses the <code>greeting</code> helper for the <code>hello</code> template. Here, we set the value of the <code>greeting</code> helper to a function, which is evaluated, and the value of the return statement (a string) is rendered in the html view.
+    Next, we'll learn about Spacebars helpers. The <code>&#123;{greeting}}</code> Spacebars tag activates the helper in <code>myFirstApp.js</code>, which returns the greeting, "Welcome to myFirstApp."
   </p>
 
   <div class="panel panel-default">
     <div class="panel-body">
       <h5 class="title">myFirstApp.js</h5>
       <div class="code">
-        Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>};
+        Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>
+        &nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>
+        };<br>
+        ...
       </div>
     </div>
   </div>
+
+  <p>
+    The helper variable has three parts. <code>Template</code> returns the javascript object containing all of our Meteor templates. <code>.hello</code> simply accesses the <code>hello</code> template from the template object. Finally, <code>.greeting</code> accesses the <code>greeting</code> helper for the <code>hello</code> template. Here, we set the value of the <code>greeting</code> helper to a function, which is evaluated, and the value of the return statement (a string) is rendered in the html view.
+  </p>
 
 <!--   <p>
     <code>Template.hello.greeting</code> has three parts: <code>Template</span> refers to the Meteor object holding all of the templates in our application. <code>.hello</span> then filters to retrieve the template named "hello". Finally, <code>.greeting</span> refers to the "greeting" helper of the "hello" template.
@@ -185,7 +183,11 @@
     <div class="panel-body">
       <h5 class="title">myFirstApp.js</h5>
       <div class="code">
-        Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;return&nbsp;&quot;Welcome to Meteor!&quot;;<br/>};
+        ...<br>
+        Template.hello.greeting&nbsp;=&nbsp;function&nbsp;()&nbsp;{<br/>
+        &nbsp;&nbsp;return&nbsp;&quot;Welcome&nbsp;to&nbsp;myFirstApp.&quot;;<br/>
+        };<br>
+        ...
       </div>
     </div>
   </div>
@@ -209,13 +211,21 @@
     <div class="panel-body">
       <h5 class="title">myFirstApp.js</h5>
       <div class="code">
-        Template.hello.events({<br/>&nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function&nbsp;()&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;data,&nbsp;if&nbsp;any,&nbsp;is&nbsp;available&nbsp;in&nbsp;'this'<br/>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(typeof&nbsp;console&nbsp;!==&nbsp;'undefined')<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;You&nbsp;pressed&nbsp;the&nbsp;button&quot;);<br/>&nbsp;&nbsp;}<br/>});
+        ...<br>
+        Template.hello.events({<br/>
+        &nbsp;&nbsp;'click&nbsp;input'&nbsp;:&nbsp;function&nbsp;()&nbsp;{<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;data,&nbsp;if&nbsp;any,&nbsp;is&nbsp;available&nbsp;in&nbsp;'this'<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(typeof&nbsp;console&nbsp;!==&nbsp;'undefined')<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;You&nbsp;pressed&nbsp;the&nbsp;button&quot;);<br/>
+        &nbsp;&nbsp;}<br/>
+        });<br>
+        ...
       </div>
     </div>
   </div>
 
   <p>
-    It's a pretty intuitive syntax, <code>'click input'</code>. Whenever someone clicks on any input element in the hello template, this function will be called. All this function does is log a message to the browser console whenever the button is clicked. The developer tools, including the browser console can be opened in most browsers with "f12" or in safari, Cmd-Opt-C or Ctrl-Alt-C when using safari in an OS other than Mac.
+    It's a pretty intuitive syntax, <code>'click input'</code>. Whenever someone clicks on any input element in the hello template, this function will be called. All this function does is log a message to the browser console whenever the button is clicked. The developer tools, including the browser console, can be opened in most browsers with "f12" or in safari, "Cmd-Opt-C". When using safari in an OS other than Mac, use "Ctrl-Alt-C".
   </p>
 
   <p>
