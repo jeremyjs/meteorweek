@@ -55,9 +55,9 @@
         <br>
         <!-- TODO: test this route --> <br>
         &nbsp;&nbsp;// Navigating to 'localhost:3000/messages' will display <br>
-        &nbsp;&nbsp;// the template named 'messagesList'. That template will be <br>
-        &nbsp;&nbsp;// populated with the result of the data function within the <br>
-        &nbsp;&nbsp;// '&#123;{> yield}}' Spacebars helper. <br>
+        &nbsp;&nbsp;// the template named 'messagesList'. That template will <br>
+        &nbsp;&nbsp;// populate the '&#123;{> yield}}' Spacebars helper with the <br>
+        &nbsp;&nbsp;// result of the data function. <br>
         &nbsp;&nbsp;this.route('messagesList', { <br>
         &nbsp;&nbsp;&nbsp;&nbsp;path: '/messages', <br>
         &nbsp;&nbsp;&nbsp;&nbsp;data: function() { return Messages.find(); } <br>
@@ -122,7 +122,7 @@
 
   <div class="panel panel-default">
     <div class="panel-body">
-      <h5>collections.js</h5>
+      <h5 class="title">collections.js</h5>
       <div class="code">
         Messages = new Meteor.Collection(&quot;messages&quot;);<br>
         <br>
