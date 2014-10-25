@@ -10,7 +10,5 @@ accounts-base
 accounts-password
 accounts-ui-unstyled
 bootstrap-3
-marked
 coffeescript
 iron:router
-
