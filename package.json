@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
+    "deploy": "./bin/deploy.sh",
     "server": "meteor --port 6060",
     "start": "npm run -s server",
     "test": "echo \"Error: no test specified\" && exit 1"
