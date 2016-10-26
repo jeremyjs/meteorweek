@@ -9,6 +9,6 @@ accounts-ui
 accounts-base
 accounts-password
 accounts-ui-unstyled
-bootstrap-3
+mizzao:bootstrap-3
 coffeescript
 iron:router
