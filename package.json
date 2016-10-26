@@ -1,0 +1,24 @@
+{
+  "name": "meteorweek",
+  "version": "1.0.0",
+  "description": "The best Meteor tutorials on the web.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "server": "meteor --port 6060",
+    "start": "npm run -s server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremyjs/meteorweek.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeremyjs/meteorweek/issues"
+  },
+  "homepage": "https://github.com/jeremyjs/meteorweek#readme"
+}
